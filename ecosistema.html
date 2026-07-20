@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecosistema Nacional de Bioinsumos | Bioinsumos Costa Rica</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  
+  <link rel="stylesheet" href="css/ecosistema.css" />
+</head>
+<body class="ecosistema-page">
+
+    <header class="topbar">
+        <div class="logo-wrap"> Bioinsumos CR</div>
+        <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
+        <nav class="nav" id="mainNav">
+          <a href="index.html">Inicio</a>
+          <a href="conocimiento.html">Conocimiento</a>
+          <a href="experiencias.html">Experiencias</a>
+          <a href="ecosistema.html" class="active">Ecosistema</a>
+          <a href="entorno.html" >Entorno</a>
+        </nav>
+      </header>
+
+  <main>
+    <section class="ecosistema-hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        
+        <h1>Ecosistema Nacional de Bioinsumos</h1>
+        <p>Mapeo inteligente, directorio de actores clave y redes de colaboración estratégica para el desarrollo bioagropecuario de Costa Rica.</p>
+      </div>
+    </section>
+
+    <section class="workspace-section">
+      
+      <div class="workspace-tabs-mobile">
+        <button class="map-tab-btn active" data-tab="mapa">
+          <i class="fa-solid fa-map-location-dot"></i> Mapa de Biofábricas
+        </button>
+        <button class="map-tab-btn" data-tab="detalles" id="tabDetallesMovil">
+          <i class="fa-solid fa-circle-info"></i> Ficha Técnica
+        </button>
+      </div>
+
+      <div class="map-wrapper-container" id="mapWrapper">
+        <div class="mapa-leaflet-canvas" id="mapaEcosistema"></div>
+        
+        <div class="map-details-sidebar" id="mapSidebar">
+          <h3><i class="fa-solid fa-seedling text-primary"></i> Detalle de Entidad</h3>
+          <div id="sidebarDynamicContent">
+            <p class="sidebar-placeholder">Selecciona una biofábrica o actor en el mapa para desplegar su ficha técnica e información detallada de contacto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="directorio-section">
+      <div class="section-header-row">
+        <div class="title-block">
+          <h2>Directorio de Actores Clave</h2>
+          <p>Filtra y encuentra organizaciones aliadas en toda la cadena de valor.</p>
+        </div>
+        
+        <div class="filter-block">
+          <label for="tipoActorSelect"><i class="fa-solid fa-filter"></i> Categoría:</label>
+          <select id="tipoActorSelect" class="directorio-select">
+            <option value="Todos">Todos los Actores</option>
+            <option value="Productor">Productores / Biofábricas Locales</option>
+            <option value="Empresa">Empresas y Comercializadoras</option>
+            <option value="Universidad">Universidades y Academia</option>
+            <option value="Centros de investigación">Centros de Investigación</option>
+            <option value="Laboratorio">Laboratorios Especializados</option>
+            <option value="Institución">Instituciones Públicas</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="directorio-grid" id="directorioGrid"></div>
+    </section>
+
+    <section class="articulacion-complementaria">
+      <div class="container-complemento">
+        <div class="articulacion-card">
+          <div class="articulacion-icon color-1"><i class="fa-solid fa-hubspot"></i></div>
+          <h3>Redes de Colaboración</h3>
+          <p>Conectamos la oferta tecnológica con las necesidades de campo. Alianzas público-privadas e intercambios horizontales.</p>
+          <a href="#" class="articulacion-link">Explorar Redes <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="articulacion-card">
+          <div class="articulacion-icon color-2"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3>Proyectos en Ejecución</h3>
+          <p>Monitoreo de iniciativas de validación e investigación de campo vigentes lideradas por nuestro ecosistema nacional.</p>
+          <a href="#" class="articulacion-link">Ver Proyectos <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="articulacion-card">
+          <div class="articulacion-icon color-3"><i class="fa-solid fa-comments"></i></div>
+          <h3>Comunidades de Práctica</h3>
+          <p>Espacios virtuales y presenciales de co-aprendizaje para técnicos y productores especializados en formulación biológica.</p>
+          <a href="#" class="articulacion-link">Unirse al Foro <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Bioinsumos Costa Rica</h3>
+        <p>Plataforma para el fomento, investigación y desarrollo de alternativas biológicas en el sector agropecuario nacional.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Secciones</h4>
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="conocimiento.html">Centro de Conocimiento</a></li>
+          <li><a href="experiencias.html">Repositorio de Experiencias</a></li>
+          <li><a href="ecosistema.html">Ecosistema Nacional</a></li>
+          <li><a href="entorno.html">Entorno Habilitador</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contacto y Alianzas</h4>
+        <ul>
+          <li><i class="fa-solid fa-envelope"></i> bioinsumoscr506@gmail.com</li>
+          <li><i class="fa-solid fa-location-dot"></i> San José, Costa Rica</li>
+          <li><br><small>MAG · IICA</small></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bioinsumos CR.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="js/ecosistema.js"></script>
+</body>
+</html>

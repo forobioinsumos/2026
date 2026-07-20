@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>4.º Foro Panamericano de Bioinsumos - Bioinputs Americas Week 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <link rel="stylesheet" href="css/index.css">
+  <!-- Archivo CSS exclusivo para los componentes del micrositio -->
+  <link rel="stylesheet" href="css/foro-micrositio.css"> 
+</head>
+<body>
+
+  <!-- HEADER / TOPBAR (Modificado para la navegación del Foro) -->
+  <header class="topbar">
+    <div class="logo-wrap">
+      <img src="assets/images/Logo versiones_Color positivo.png" alt="Plataforma Hemisférica de Bioinsumos" class="header-logo-img">
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="mainNav">
+      <a href="index_foro.html" class="active">Inicio Foro</a>
+      <a href="#semana-bioinputs">Semana Bioinputs 2026</a>
+      <a href="#linea-tiempo">Histórico (Foros Antiguos)</a>
+      <a href="index.html" class="back-to-base"><i class="fa-solid fa-arrow-left"></i> Plataforma Principal</a>
+    </nav>
+  </header>
+
+  <main class="page-content">
+
+    <!-- SECCIÓN HERO DEL FORO (Vídeo o Imagen de Sede + Logos Organizadores) -->
+    <section class="hero hero-foro" style="background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(22, 101, 52, 0.55)), url('assets/images/BioInputs Americas Week 2026 ESP final.png') center/cover no-repeat;">
+      <div class="hero-overlay container">
+        <div class="hero-foro-header">
+          <!-- Logos de apoyo institucional coorganizadores -->
+          <div class="co-organizers">
+            <img src="assets/images/LogoMAG CR-2026.jpg" alt="Logo MAG" class="partner-mini-logo">
+            <span class="partner-divider">|</span>
+            <span class="partner-text">BID</span>
+            <span class="partner-divider">|</span>
+            <span class="partner-text">IICA</span>
+          </div>
+          
+          <img src="assets/images/Letras 4to Foro Bioinsumos.png" alt="4.º Foro Panamericano de Bioinsumos" class="foro-title-img">
+          <p class="hero-subtitle">¡Conectando a la región para transformar la agricultura!</p>
+          <p class="hero-date-location"><i class="fa-solid fa-calendar-days"></i> 22-23 de Septiembre de 2026 &nbsp;|&nbsp; <i class="fa-solid fa-location-dot"></i> San José, Costa Rica</p>
+          
+          <div class="hero-actions">
+            <a href="#registro" class="primary-btn btn-highlight">Inscribirse al Evento</a>
+            <a href="#semana-bioinputs" class="secondary-btn-outline">Ver Agenda de la Semana</a>
+          </div>
+        </div>
+
+        <!-- CONTADOR REGRESIVO (COUNTDOWN) -->
+        <div class="countdown-container">
+          <p class="countdown-title">El evento inicia en:</p>
+          <div class="countdown-grid">
+            <div class="countdown-card"><span class="countdown-number" id="days">64</span><span class="countdown-label">Días</span></div>
+            <div class="countdown-card"><span class="countdown-number" id="hours">12</span><span class="countdown-label">Horas</span></div>
+            <div class="countdown-card"><span class="countdown-number" id="minutes">45</span><span class="countdown-label">Min</span></div>
+          </div>
+        </div>
+
+        <!-- KPIs / ESTADÍSTICAS DEL EVENTO (Reutiliza tus estilos css de .hero-stats) -->
+        <div class="hero-stats">
+          <div class="metric-card" style="--card-delay: 0.1s;">
+            <div class="metric-icon-wrap"><i class="fa-solid fa-users"></i></div>
+            <div class="metric-info">
+              <span class="metric-number">+300</span>
+              <span class="metric-label">Conferencistas</span>
+            </div>
+          </div>
+          <div class="metric-card" style="--card-delay: 0.2s;">
+            <div class="metric-icon-wrap"><i class="fa-solid fa-globe"></i></div>
+            <div class="metric-info">
+              <span class="metric-number">4.ª</span>
+              <span class="metric-label">Edición Panamericana</span>
+            </div>
+          </div>
+          <div class="metric-card" style="--card-delay: 0.3s;">
+            <div class="metric-icon-wrap"><i class="fa-solid fa-comments"></i></div>
+            <div class="metric-info">
+              <span class="metric-number">4</span>
+              <span class="metric-label">Mesas Estratégicas</span>
+            </div>
+          </div>
+          <div class="metric-card" style="--card-delay: 0.4s;">
+            <div class="metric-icon-wrap"><i class="fa-solid fa-clock"></i></div>
+            <div class="metric-info">
+              <span class="metric-number">5 Días</span>
+              <span class="metric-label">de Actividades</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN: EJES TEMÁTICOS DEL FORO -->
+    <section class="container forum-axes">
+      <div class="section-title-wrap">
+        <h2>Ejes Temáticos del 4.º Foro</h2>
+        <p class="strategic-question">Pregunta estratégica central: ¿Qué necesita América Latina para acelerar la adopción de los bioinsumos?</p>
+      </div>
+      
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">📈</div>
+          <h3>1. El futuro de los bioinsumos</h3>
+          <p>Tendencias globales, mercados, demanda y políticas públicas que transforman la agricultura regional.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🛡️</div>
+          <h3>2. Cómo generar confianza</h3>
+          <p>Calidad, evidencia científica, marcos regulatorios y escalamiento industrial u on-farm.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">💡</div>
+          <h3>3. Innovación biológica</h3>
+          <p>Ciencia, emprendimiento (startups), transferencia tecnológica y codesarrollo industria-academia.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🌾</div>
+          <h3>4. Ventaja Competitiva</h3>
+          <p>Bioinsumos aplicados a la agricultura regenerativa, resiliencia y cumplimiento de normativas ambientales (EUDR).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: BIOINPUTS AMERICAS WEEK (CRONOGRAMA DE LA SEMANA) -->
+    <section id="semana-bioinputs" class="semana-timeline-section">
+      <div class="container">
+        <div class="section-title-wrap text-center">
+          <img src="assets/images/BioInputs Americas Week Final.png" alt="BioInputs Americas Week 2026" class="week-logo-center">
+          <h2>Cronograma General de la Semana</h2>
+          <p>Por primera vez, Costa Rica será sede de este gran encuentro del 21 al 25 de septiembre de 2026.</p>
+        </div>
+
+        <div class="timeline-week-grid">
+          <!-- Día 1 -->
+          <div class="timeline-day-card">
+            <div class="day-badge yellow-bg">21 SEP</div>
+            <h4>Mesas de Trabajo y Talleres</h4>
+            <p>Actualización, colaboración y construcción coordinada de agendas comunes para el sector.</p>
+          </div>
+          <!-- Día 2 y 3 -->
+          <div class="timeline-day-card highlight-day">
+            <div class="day-badge green-bg">22-23 SEP</div>
+            <h4>4.º Foro Panamericano de Bioinsumos</h4>
+            <p>Conferencias magistrales con referentes internacionales, paneles estratégicos y diálogos de política.</p>
+          </div>
+          <!-- Día 4 -->
+          <div class="timeline-day-card">
+            <div class="day-badge yellow-bg">24 SEP</div>
+            <h4>Gira Técnica de Campo</h4>
+            <p>Visitas a experiencias destacadas en el desarrollo y uso práctico de bioinsumos en fincas de Costa Rica.</p>
+          </div>
+          <!-- Día 5 -->
+          <div class="timeline-day-card">
+            <div class="day-badge yellow-bg">25 SEP</div>
+            <h4>Sesión con Tomadores de Decisiones</h4>
+            <p>Encuentros clave entre programas y proyectos para alinear acciones y sinergias regionales.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: ANTIGUOS FOROS (LÍNEA DE TIEMPO HISTÓRICA) -->
+    <section id="linea-tiempo" class="container historical-section">
+      <div class="section-title-wrap">
+        <h2>Nuestra Trayectoria</h2>
+        <p>El Foro Panamericano es un esfuerzo sostenido a través de los años para la consolidación agroecológica.</p>
+      </div>
+
+      <div class="history-timeline">
+        <div class="history-item">
+          <div class="history-year">1.er Foro</div>
+          <div class="history-content">
+            <h4>El Inicio del Diálogo Regional</h4>
+            <p>Establecimiento de las primeras mesas técnicas y articulación de necesidades prioritarias por país.</p>
+          </div>
+        </div>
+        <div class="history-item">
+          <div class="history-year">2.º Foro</div>
+          <div class="history-content">
+            <h4>Marcos Regulatorios e Intercambio</h4>
+            <p>Enfoque en la armonización de normativas biológicas y registros sanitarios transfronterizos.</p>
+          </div>
+        </div>
+        <div class="history-item">
+          <div class="history-year">3.er Foro</div>
+          <div class="history-content">
+            <h4>Evidencia y Adopción Comercial</h4>
+            <p>Impulso a la validación en laboratorios y al financiamiento de biofábricas comunitarias.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: CARUSEL DE ORGANIZADORES Y APOYO INSTITUCIONAL -->
+    <section class="sponsors-carousel-section">
+      <div class="container text-center">
+        <h3>Apoyo Institucional y Organizadores</h3>
+        <div class="sponsors-logos-wrap">
+          <img src="assets/images/LogoMAG CR-2026.jpg" alt="Ministerio de Agricultura y Ganadería">
+          <!-- Espacio para los logos vectoriales o imágenes transparentes del BID e IICA -->
+          <div class="logo-placeholder-box">BID</div>
+          <div class="logo-placeholder-box">IICA</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN: FORMULARIO Y CONTACTO -->
+    <section id="registro" class="container contact-registration-section">
+      <div class="grid-2col">
+        
+        <!-- Formulario -->
+        <div class="registration-form-wrap">
+          <h3>Pre-registro al Foro</h3>
+          <p>Asegura tu participación en las conferencias y paneles virtuales/presenciales.</p>
+          <form class="microsite-form">
+            <div class="form-group">
+              <label for="form-name">Nombre Completo</label>
+              <input type="text" id="form-name" required placeholder="Ej. Ana Rodríguez">
+            </div>
+            <div class="form-group">
+              <label for="form-email">Correo Electrónico</label>
+              <input type="email" id="form-email" required placeholder="ejemplo@correo.com">
+            </div>
+            <div class="form-group">
+              <label for="form-org">Institución / Empresa</label>
+              <input type="text" id="form-org" placeholder="Universidad, Ministerio, Finca...">
+            </div>
+            <button type="submit" class="primary-btn w-100">Enviar Registro</button>
+          </form>
+        </div>
+
+        <!-- Información de Sede e Información de Contacto -->
+        <div class="contact-info-wrap">
+          <h3>Información del Evento y Sede</h3>
+          <p>Las actividades principales de la <strong>Bioinputs Americas Week 2026</strong> se llevarán a cabo de forma híbrida desde San José, Costa Rica.</p>
+          
+          <div class="video-placeholder-sede">
+            <i class="fa-solid fa-circle-play video-icon"></i>
+            <span>Ver Video Panorámico de la Sede</span>
+          </div>
+
+          <div class="direct-contact-box">
+            <h4>¿Consultas directas o propuestas de prensa?</h4>
+            <a href="mailto:phbioinsumos@iica.int" class="email-link">
+              <i class="fa-solid fa-envelope"></i> phbioinsumos@iica.int
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER INSTITUCIONAL OSCURO (Reutiliza tus clases base) -->
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Plataforma Hemisférica de Bioinsumos</h3>
+        <p>Impulsando la gestión del conocimiento y la articulación agropecuaria sostenible en todas las Américas.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navegación del Foro</h4>
+        <ul>
+          <li><a href="index_foro.html">Inicio Foro</a></li>
+          <li><a href="#semana-bioinputs">Semana Bioinputs</a></li>
+          <li><a href="#linea-tiempo">Foros Anteriores</a></li>
+          <li><a href="index.html">Volver a Bioinsumos CR</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contacto del Foro</h4>
+        <ul>
+          <li><i class="fa-solid fa-envelope"></i> phbioinsumos@iica.int</li>
+          <li><i class="fa-solid fa-location-dot"></i> San José, Costa Rica</li>
+          <li><br><small>MAG · IICA · BID</small></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Bioinsumos Foro Micrositio.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
