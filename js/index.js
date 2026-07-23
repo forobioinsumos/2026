@@ -321,3 +321,4 @@ function cargarInnovacionesDestacadas() {
     gridDestacados.appendChild(card);
   });
 }
+
