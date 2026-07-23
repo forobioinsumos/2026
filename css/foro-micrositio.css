@@ -159,7 +159,7 @@
 
 /* Línea de tiempo de la Semana */
 .semana-timeline-section {
-  background-color: var(--surface-2);
+  
   padding: 4rem 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
