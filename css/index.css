@@ -2,11 +2,11 @@
    VARIABLES GLOBALES Y CONFIGURACIÓN BASE
 ========================================================= */
 :root {
-  --primary: #166534;        
+  --primary: #014e2e;        
   --primary-dark: #14532d;   
   --accent: #22c55e;         
   --success: #15803d;
-  --bg: #f4f7f5;             
+  --bg: #f7f1e3;             
   --surface: #ffffff;
   --surface-2: #f8fafc;
   --text: #1f2937;           
