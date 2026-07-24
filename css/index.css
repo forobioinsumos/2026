@@ -248,7 +248,7 @@ body {
    FOOTER INSTITUCIONAL OSCURO
 ========================================================= */
 .main-footer {
-  background: #0f172a;
+  background: var(--primary);
   color: #94a3b8;
   padding: 4rem 5% 2rem;
   font-size: 0.9rem;
