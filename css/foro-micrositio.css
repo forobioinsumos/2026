@@ -81,6 +81,7 @@
 .btn-highlight {
   background-color: var(--event-gold) !important;
   color: var(--dark-slate) !important;
+  text-decoration: none;
 }
 .btn-highlight:hover {
   background-color: var(--event-gold-dark) !important;
@@ -165,7 +166,7 @@
 }
 
 .week-logo-center {
-  max-height: 80px;
+  max-height: 400px;
   width: auto;
   margin-bottom: 1rem;
 }
@@ -333,7 +334,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 2rem;
-  margin-top: 2.5rem;
+  margin: 2.5rem 2.5rem;
 }
 
 .eje-card {
