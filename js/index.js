@@ -353,6 +353,48 @@ function updateCountdown() {
   if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
 }
 
+const swiper = new Swiper(".heroSwiper", {
+
+  loop: true,
+
+  speed: 900,
+
+  grabCursor: true,
+
+  centeredSlides: true,
+
+  autoplay: {
+      delay: 4500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+  },
+
+  effect: "slide",
+
+  pagination: {
+      el: ".swiper-pagination",
+      clickable: true
+  },
+
+  navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev"
+  },
+
+  keyboard: {
+      enabled: true
+  },
+
+  mousewheel: false,
+
+  preloadImages: false,
+
+  lazy: {
+      loadPrevNext: true
+  }
+
+});
+
 // Ejecutar inmediatamente y luego actualizar cada segundo (1000 ms)
 updateCountdown();
 setInterval(updateCountdown, 1000);
