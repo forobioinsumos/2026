@@ -337,7 +337,7 @@
 }
 
 .eje-card {
-  background: var(--surface);
+  background: #e2f0ef63;
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2rem 1.75rem 1.5rem;
@@ -384,7 +384,7 @@
 .eje-number {
   font-size: 2.2rem;
   font-weight: 900;
-  color: #e2e8f0; /* Número traslúcido elegante */
+  color: var(--primary); /* Número traslúcido elegante */
   letter-spacing: -1px;
   line-height: 1;
   transition: color 0.3s ease;
