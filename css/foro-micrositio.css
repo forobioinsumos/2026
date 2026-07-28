@@ -160,7 +160,6 @@
 /* Línea de tiempo de la Semana */
 .semana-timeline-section {
   
-  padding: 4rem 0;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
