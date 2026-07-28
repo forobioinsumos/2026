@@ -166,8 +166,8 @@
 }
 
 .week-logo-center {
-  max-height: 400px;
-  width: auto;
+  max-width: 700px;
+  width: 90%;
   margin-bottom: 1rem;
 }
 

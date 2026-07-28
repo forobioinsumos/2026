@@ -401,3 +401,42 @@ body {
     transform: translateY(0);
   }
 }
+/* Contenedor principal */
+.hero-actions {
+  display: flex;
+  flex-direction: column; /* En pantallas pequeñas se apilan uno sobre otro */
+  gap: 1rem;              /* Espacio vertical entre botones */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Estilos base ajustados para ambos botones */
+.primary-btn, 
+.secondary-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;             /* Ocupan todo el ancho disponible en móvil */
+  max-width: 100%;
+  box-sizing: border-box;
+  
+  /* Mantiene los paddings flexibles y evita que el texto rompa el diseño */
+  padding: 0.75rem 1rem;   
+  white-space: normal;     /* Permite que el texto baje de línea si el espacio es muy estrecho */
+  word-break: break-word;
+}
+
+/* Media Query para pantallas medianas y grandes (Tablets / Desktop) */
+@media (min-width: 640px) {
+  .hero-actions {
+    flex-direction: row;   /* Se colocan lado a lado en pantallas grandes */
+    justify-content: center; /* O flex-start según la alineación de tu Hero */
+  }
+
+  .primary-btn, 
+  .secondary-btn-outline {
+    width: auto;           /* Recuperan su tamaño según el contenido */
+  }
+}
