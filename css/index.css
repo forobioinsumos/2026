@@ -51,7 +51,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 5%;
+  padding: 0.5rem 5%;
   border-bottom: 1px solid var(--border);
 }
 
@@ -77,7 +77,6 @@ body {
 
 .nav a:hover, .nav a.active {
   color: var(--primary);
-  background: rgba(22, 101, 52, 0.08);
 }
 
 /* Menú Hamburguesa Móvil */
