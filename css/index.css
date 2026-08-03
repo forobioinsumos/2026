@@ -44,8 +44,10 @@ body {
 
 .bg-decoration img{
   position: absolute;       /* 3.5% */
-  width: 800px;            /* mucho más pequeñas */
+  width: 700px;            /* mucho más pequeñas */
   height: auto;
+  opacity: .7; 
+  overflow-x: hidden;
 }
 
 /* Distribución */
@@ -58,13 +60,13 @@ body {
 
 .hummingbird{
   top: 40%;
-  left: -10%;
+  left: -5%;
   transform: rotate(18deg);
 }
 
 .flower{
   bottom: 10%;
-  left: -6%;
+  left: -3%;
 }
 
 .frog{
