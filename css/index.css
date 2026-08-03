@@ -44,7 +44,7 @@ body {
 
 .bg-decoration img{
   position: absolute;       /* 3.5% */
-  width: 200px;            /* mucho más pequeñas */
+  width: 800px;            /* mucho más pequeñas */
   height: auto;
 }
 
@@ -52,26 +52,24 @@ body {
 
 .butterfly{
   top: 8%;
-  left: 12%;
+  left: -12%;
   transform: rotate(-15deg);
 }
 
 .hummingbird{
   top: 22%;
-  right: 10%;
+  right: -10%;
   transform: rotate(18deg);
 }
 
 .flower{
   bottom: 15%;
-  left: 6%;
-  width: 110px;
+  left: -6%;
 }
 
 .frog{
   bottom: 18%;
-  right: 8%;
-  width: 100px;
+  right: -8%;
 }
 
 .container {
