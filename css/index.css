@@ -54,7 +54,7 @@ body {
 
 .butterfly{
   top: 18%;
-  right: -12%;
+  right: 0%;
   transform: rotate(-15deg);
 }
 
@@ -71,7 +71,7 @@ body {
 
 .frog{
   bottom: 25%;
-  right: -8%;
+  right: 0%;
 }
 
 .container {
