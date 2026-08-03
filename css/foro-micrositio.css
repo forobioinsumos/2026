@@ -296,10 +296,13 @@
   }
   
   /* --- CARRUSEL EXCLUSIVO DE LA LÍNEA DEL TIEMPO (COMPACTO) --- */
-  .history-content .hero-gallery {
-    width: 100% !important;
-    margin-top: auto;
-  }
+.hero-gallery,
+.swiper,
+.swiper-wrapper {
+  max-width: 100% !important;
+  box-sizing: border-box;
+  overflow: hidden !important;
+}
   
   .history-content .heroSwiper {
     width: 100% !important;
@@ -657,3 +660,55 @@
   color: var(--event-gold);
 }
 
+/* =========================================================
+   CORRECCIÓN DE ANCHO ESTRUCTURAL EN CARRUSELES SWIPER
+   ========================================================= */
+
+/* 1. Obliga a las galerías y envolventes a no superar el 100% de su contenedor padre */
+.hero-gallery,
+.history-content .hero-gallery {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important; /* CRUCIAL: Permite que el flex/grid shrink funcione en CSS */
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* 2. Restringe la instancia de Swiper */
+.swiper,
+.heroSwiper {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* 3. Asegura que la tira interna de slides no genere scroll general */
+.swiper-wrapper {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 4. Mantiene los ítems individuales y sus imágenes bajo control estricto */
+.swiper-slide {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.swiper-slide img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+/* 5. Asegura que los contenedores padres en Grid/Flex de la Línea del Tiempo y Sede no se estiren */
+.history-item,
+.history-content,
+.contact-info-wrap {
+  min-width: 0 !important; /* Evita que los ítems en Grid de 3 columnas empujen el ancho */
+  max-width: 100% !important;
+}
