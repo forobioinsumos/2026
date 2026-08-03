@@ -478,74 +478,106 @@ img, svg, picture, iframe {
 /* =========================================================
    4. CONTROL ABSOLUTO Y UNIFICADO DE SWIPER / CARRUSELES
 ========================================================= */
-.hero-gallery,
-.swiper,
-.heroSwiper,
-.swiper-wrapper {
+
+/* Estructura base de los contenedores */
+.hero-gallery {
   width: 100% !important;
   max-width: 100% !important;
   min-width: 0 !important;
   box-sizing: border-box !important;
-  overflow: hidden !important;
+  position: relative !important;
+}
+
+.swiper {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  position: relative !important;
+  display: block !important;
+  overflow: hidden !important; /* El overflow solo va en el swiper principal */
+}
+
+.swiper-wrapper {
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
 }
 
 .swiper-slide {
+  flex-shrink: 0 !important;
   width: 100% !important;
-  max-width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
   box-sizing: border-box !important;
 }
 
 .swiper-slide img {
   width: 100% !important;
-  max-width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
   display: block !important;
 }
 
-/* --- CARRUSEL GENERAL/HERO --- */
-:not(.history-content) .heroSwiper {
-  height: 600px;
+/* --- A. CARRUSEL GENERAL / HERO DE INICIO (Si aplica) --- */
+:not(.history-content):not(.contact-info-wrap) .heroSwiper {
+  height: 500px !important;
+  border-radius: 16px;
 }
 
+/* --- B. CARRUSEL DE LA SEDE (Sección Contacto) --- */
+.contact-info-wrap .heroSwiper {
+  height: 300px !important;
+  min-height: 300px !important;
+  border-radius: 12px !important;
+  margin: 1rem 0 1.5rem 0 !important;
+}
+
+.contact-info-wrap .swiper-slide img {
+  border-radius: 12px !important;
+}
+
+/* Estilos de botones para Hero y Sede */
 :not(.history-content) .swiper-button-next,
 :not(.history-content) .swiper-button-prev {
-  color: white;
-  width: 55px;
-  height: 55px;
-  background: rgba(0,0,0,.35);
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 50%;
-  backdrop-filter: blur(8px);
-  transition: .3s;
+  backdrop-filter: blur(4px);
+  transition: background 0.3s ease;
 }
 
 :not(.history-content) .swiper-button-next:hover,
 :not(.history-content) .swiper-button-prev:hover {
-  background: rgba(0,0,0,.55);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 :not(.history-content) .swiper-button-next::after,
 :not(.history-content) .swiper-button-prev::after {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
 
 :not(.history-content) .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background: white;
-  opacity: .5;
+  width: 10px;
+  height: 10px;
+  background: #ffffff;
+  opacity: 0.6;
 }
 
 :not(.history-content) .swiper-pagination-bullet-active {
   opacity: 1;
+  background: var(--accent, #22c55e);
 }
 
-/* --- CARRUSEL COMPACTO DE LÍNEA DEL TIEMPO --- */
+/* --- C. CARRUSEL COMPACTO DE LÍNEA DEL TIEMPO (Panamá, Uruguay, Colombia) --- */
 .history-content .heroSwiper {
-  height: 120px !important;
-  max-height: 120px !important;
+  height: 180px !important;
+  min-height: 180px !important;
   border-radius: 8px !important;
+  margin-top: 1rem !important;
   position: relative !important;
 }
 
@@ -555,9 +587,9 @@ img, svg, picture, iframe {
 
 .history-content .heroSwiper .swiper-button-next,
 .history-content .heroSwiper .swiper-button-prev {
-  width: 28px !important;
-  height: 28px !important;
-  background: rgba(0, 0, 0, 0.4) !important;
+  width: 30px !important;
+  height: 30px !important;
+  background: rgba(0, 0, 0, 0.5) !important;
   border-radius: 50% !important;
   color: #ffffff !important;
   backdrop-filter: blur(4px) !important;
@@ -578,7 +610,7 @@ img, svg, picture, iframe {
 
 .history-content .heroSwiper .swiper-pagination-bullet-active {
   opacity: 1 !important;
-  background: var(--primary) !important;
+  background: var(--primary, #014e2e) !important;
 }
 
 /* =========================================================
