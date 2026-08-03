@@ -203,7 +203,7 @@
 .yellow-bg { background-color: #fef08a; color: #713f12; }
 .green-bg { background-color: #bbf7d0; color: #14532d; }
 
-/* Contenedor principal */
+/* Contenedor principal de la sección */
 .historical-section {
   padding: 4rem 1.5rem;
 }
@@ -212,81 +212,66 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 3rem; /* Espacio vertical en pantallas móviles */
-  margin-top: 3rem;
+  gap: 3.5rem; /* Separación vertical en móviles */
+  margin-top: 3.5rem;
 }
 
-/* Configuración para Computadoras / Pantallas Medianas y Grandes */
-@media (min-width: 900px) {
-  .history-timeline {
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-between;
-    gap: 1rem; /* Separación ampliada entre columnas en escritorio */
-  }
-
-  /* Línea horizontal conectora */
-  .history-timeline::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 8%;
-    right: 8%;
-    height: 2px;
-    background: var(--border, #e2e8f0);
-    z-index: 0;
-  }
-
-  .history-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0;
-  }
+/* --- LÍNEA DE TIEMPO EN CELULARES (VERTICAL) --- */
+.history-timeline::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 20px; /* Posicionada al eje del círculo/badge */
+  width: 2px;
+  background: var(--border, #e2e8f0);
+  z-index: 0;
 }
 
-/* Elementos de la tarjeta */
 .history-item {
   position: relative;
   z-index: 1;
+  padding-left: 3rem; /* Espacio para la línea vertical en móvil */
 }
 
-/* Badge con el año/número de foro */
+/* Badge con el número de foro */
 .history-badge {
-  text-align: center;
-  margin-bottom: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
 }
 
 .history-year {
   display: inline-block;
   background: var(--primary, #2e7d32);
   color: #ffffff;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  padding: 0.35rem 0.9rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
 }
 
-/* Tarjetas con más aire */
+/* Tarjeta principal con layout flexible */
 .history-content {
   background: var(--surface, #ffffff);
   border-radius: 16px;
   border: 1px solid var(--border, #edf2f7);
-  padding: 1.75rem 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex-grow: 1;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* --- ALTO FIJO PARA EL TEXTO --- */
+.contact-info-wrap {
   display: flex;
   flex-direction: column;
 }
 
-.history-content:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
-}
-
-/* Tipografía */
 .history-content h4 {
   display: flex;
   align-items: center;
@@ -298,34 +283,38 @@
 }
 
 .history-content h4 .flag {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
+/* Título con altura fija (hasta 2 líneas) */
 .history-content h3 {
   font-size: 1.1rem;
   color: var(--text, #1a202c);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   line-height: 1.35;
+  height: 2.7em; /* Altura estandarizada para alineación */
+  overflow: hidden;
 }
 
+/* Párrafo con altura fija de 3 líneas para homogeneidad */
 .history-content p {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: #64748b;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  height: 4.5em; /* Permite hasta 3 líneas alineadas de texto */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 1.25rem;
 }
 
-/* Carrusel de Imágenes Apaisado / Menos Alto */
+/* --- IMAGEN Y CARRUSEL ADAPTABLE --- */
 .hero-gallery {
-  margin-top: auto; /* Sitúa el carrusel en la base de la tarjeta */
-  display: flex;
-  justify-content: center;
+  width: 100%;
 }
 
 .heroSwiper {
-  width: 100%;
-  max-width: 260px; /* Ancho ajustado */
-  height: 130px;    /* Reducción importante de altura (menos alargada) */
+  width: 100%; /* Toma el 100% del subcontenedor */
+  height: 120px; /* Alto panorámico y compacto */
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -334,16 +323,16 @@
 .heroSwiper .swiper-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Mantiene la imagen encuadrada sin deformarse */
+  object-fit: cover; /* Ajuste automático manteniendo proporción */
   border-radius: 10px;
 }
 
-/* Flechas y paginación del carrusel */
+/* Controles reducidos del Swiper */
 .heroSwiper .swiper-button-next,
 .heroSwiper .swiper-button-prev {
   transform: scale(0.5);
   color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .heroSwiper .swiper-pagination-bullet {
@@ -356,6 +345,48 @@
 .heroSwiper .swiper-pagination-bullet-active {
   opacity: 1;
   background: var(--primary, #2e7d32);
+}
+
+/* =========================================================
+   PANTALLAS MEDIANAS Y GRANDES (ESCRITORIO / HORIZONTAL)
+   ========================================================= */
+@media (min-width: 900px) {
+  .history-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 2.5rem;
+    align-items: stretch;
+  }
+
+  /* Línea horizontal fija que no se desacomoda al redimensionar */
+  .history-timeline::before {
+    top: 16px;
+    left: 10%;
+    right: 10%;
+    width: auto;
+    height: 2px;
+    background: var(--border, #e2e8f0);
+  }
+
+  .history-item {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Centrado del badge sobre la línea horizontal */
+  .history-badge {
+    position: relative;
+    left: auto;
+    top: auto;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .history-content {
+    flex-grow: 1;
+  }
 }
 
 /* Bloque de Logotipos */
