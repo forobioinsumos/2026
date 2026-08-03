@@ -32,44 +32,48 @@ body {
   background:#fcfcfc;
 }
 
-.bg-art{
-  position:fixed;
-  z-index:-1;
-  opacity:.05;
-  pointer-events:none;
-  user-select:none;
-  filter:blur(.2px);
+
+
+/* Capa de decoración */
+.bg-decoration{
+  position: fixed;      /* o absolute si prefieres que se desplacen con la página */
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
-/* Colibrí */
-.bird{
-  width:220px;
-  top:8%;
-  right:6%;
-  transform:rotate(15deg);
+.bg-decoration img{
+  position: absolute;
+  opacity: .035;          /* 3.5% */
+  width: 90px;            /* mucho más pequeñas */
+  height: auto;
+  filter: grayscale(1);
 }
 
-/* Mariposa */
+/* Distribución */
+
 .butterfly{
-  width:180px;
-  left:4%;
-  top:45%;
-  transform:rotate(-12deg);
+  top: 8%;
+  left: 12%;
+  transform: rotate(-15deg);
 }
 
-/* Rana */
-.frog{
-  width:230px;
-  right:-20px;
-  bottom:8%;
-  transform:rotate(-8deg);
+.hummingbird{
+  top: 22%;
+  right: 10%;
+  transform: rotate(18deg);
 }
 
-/* Planta */
 .flower{
-  width:260px;
-  left:-40px;
-  top:70%;
+  bottom: 15%;
+  left: 6%;
+  width: 110px;
+}
+
+.frog{
+  bottom: 18%;
+  right: 8%;
+  width: 100px;
 }
 
 .container {
