@@ -47,7 +47,6 @@ body {
   opacity: .035;          /* 3.5% */
   width: 90px;            /* mucho más pequeñas */
   height: auto;
-  filter: grayscale(1);
 }
 
 /* Distribución */
