@@ -260,7 +260,7 @@ img, svg, picture, iframe {
 
 .hero-date-location {
   font-size: 1.1rem;
-  color: var(--accent);
+  color: #d08814;
   margin-bottom: 2rem;
   font-weight: 500;
 }
