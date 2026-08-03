@@ -36,16 +36,15 @@ body {
 
 /* Capa de decoración */
 .bg-decoration{
-  position: fixed;      /* o absolute si prefieres que se desplacen con la página */
+  position: absolute;      /* o absolute si prefieres que se desplacen con la página */
   inset: 0;
-  z-index: -1;
+  z-index: -100;
   pointer-events: none;
 }
 
 .bg-decoration img{
-  position: absolute;
-  opacity: .035;          /* 3.5% */
-  width: 90px;            /* mucho más pequeñas */
+  position: absolute;       /* 3.5% */
+  width: 200px;            /* mucho más pequeñas */
   height: auto;
 }
 
