@@ -23,11 +23,53 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--bg);
   color: var(--text);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  position:relative;
+  overflow-x:hidden;
+  background:#fcfcfc;
+}
+
+.bg-art{
+  position:fixed;
+  z-index:-1;
+  opacity:.05;
+  pointer-events:none;
+  user-select:none;
+  filter:blur(.2px);
+}
+
+/* Colibrí */
+.bird{
+  width:220px;
+  top:8%;
+  right:6%;
+  transform:rotate(15deg);
+}
+
+/* Mariposa */
+.butterfly{
+  width:180px;
+  left:4%;
+  top:45%;
+  transform:rotate(-12deg);
+}
+
+/* Rana */
+.frog{
+  width:230px;
+  right:-20px;
+  bottom:8%;
+  transform:rotate(-8deg);
+}
+
+/* Planta */
+.flower{
+  width:260px;
+  left:-40px;
+  top:70%;
 }
 
 .container {
