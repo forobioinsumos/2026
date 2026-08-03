@@ -2,21 +2,26 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>4.º Foro Panamericano de Bioinsumos - Bioinputs Americas Week 2026</title>
+  
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  
+  <!-- Fuentes e Iconos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="stylesheet" href="css/index.css">
   <!-- Archivo CSS exclusivo para los componentes del micrositio -->
-  <link rel="stylesheet" href="css/foro-micrositio.css"> 
+  
 </head>
 <body>
-  <!-- HEADER / TOPBAR (Modificado para la navegación del Foro) -->
+
+  <!-- HEADER / TOPBAR -->
   <header class="topbar">
     <div class="logo-wrap">
       <img src="assets/images/Logo_versiones_Color_positivo.png" alt="Plataforma Hemisférica de Bioinsumos" class="header-logo-img">
@@ -25,40 +30,42 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="nav" id="mainNav">
-      <a class="active">Inicio Foro</a>
+      <a class="active" href="#">Inicio Foro</a>
       <a href="#semana-bioinputs">Semana Bioinputs 2026</a>
     </nav>
   </header>
-<div class="bg-decoration">
+
+  <!-- ILUSTRACIONES DE FONDO DECORATIVAS -->
+  <div class="bg-decoration" aria-hidden="true">
     <img class="butterfly" src="assets/images/butterfly.svg" alt="">
     <img class="hummingbird" src="assets/images/hummingbird.svg" alt="">
     <img class="flower" src="assets/images/flower.svg" alt="">
     <img class="frog" src="assets/images/frog.svg" alt="">
-</div>
+  </div>
+
   <main class="page-content">
 
-    <!-- SECCIÓN HERO DEL FORO (Vídeo o Imagen de Sede + Logos Organizadores) -->
+    <!-- SECCIÓN HERO DEL FORO -->
     <section class="hero hero-foro" style="background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(22, 101, 52, 0.55)), url('assets/images/hero.png') center/cover no-repeat;">
       <div class="hero-overlay container">
         <div class="hero-foro-header">
-          <!-- Logos de apoyo institucional coorganizadores -->
+          <!-- Logos Coorganizadores -->
           <div class="sponsors-logos-wrap">
             <img src="assets/images/logo_mag_blanco.svg" alt="Ministerio de Agricultura y Ganadería">
-            <!-- Espacio para los logos vectoriales o imágenes transparentes del BID e IICA -->
             <img style="max-height:90px" src="assets/images/BID_Blanco.svg" alt="BID">
-            <img src="assets/images/iica_logo_blanco.svg" alt="Instituto Interameridano de Cooperacion para la Agricultura">
+            <img src="assets/images/iica_logo_blanco.svg" alt="Instituto Interamericano de Cooperación para la Agricultura">
           </div>
           <img src="assets/images/Letras 4to Foro Bioinsumos.png" alt="4.º Foro Panamericano de Bioinsumos" class="foro-title-img">
           <p class="hero-subtitle">¡Conectando a la región para transformar la agricultura!</p>
           <p class="hero-date-location"><i class="fa-solid fa-calendar-days"></i> 22-23 de Septiembre de 2026 &nbsp;|&nbsp; <i class="fa-solid fa-location-dot"></i> San José, Costa Rica</p>
           
           <div class="hero-actions">
-            <a href="https://forms.office.com/r/WgaXKn8yyW?origin=QRCode" class="primary-btn btn-highlight">Inscribirse al Evento</a>
+            <a href="https://forms.office.com/r/WgaXKn8yyW?origin=QRCode" target="_blank" rel="noopener noreferrer" class="primary-btn btn-highlight">Inscribirse al Evento</a>
             <a href="#semana-bioinputs" class="secondary-btn-outline">Ver Agenda de la Semana</a>
           </div>
         </div>
 
-        <!-- CONTADOR REGRESIVO (COUNTDOWN) -->
+        <!-- COUNTDOWN -->
         <div class="countdown-container">
           <p class="countdown-title">El evento inicia en:</p>
           <div class="countdown-grid">
@@ -68,15 +75,8 @@
           </div>
         </div>
 
-        <!-- KPIs / ESTADÍSTICAS DEL EVENTO (Reutiliza tus estilos css de .hero-stats) -->
+        <!-- ESTADÍSTICAS DEL EVENTO -->
         <div class="hero-stats">
-          <div class="metric-card" style="--card-delay: 0.2s;">
-            <div class="metric-icon-wrap"><i class="fa-solid fa-earth-americas"></i></div>
-            <div class="metric-info">
-              <span class="metric-number">+20</span>
-              <span class="metric-label">Países</span>
-            </div>
-          </div>
           <div class="metric-card" style="--card-delay: 0.1s;">
             <div class="metric-icon-wrap"><i class="fa-solid fa-microphone"></i></div>
             <div class="metric-info">
@@ -84,15 +84,21 @@
               <span class="metric-label">Conferencistas</span>
             </div>
           </div>
-          
+          <div class="metric-card" style="--card-delay: 0.2s;">
+            <div class="metric-icon-wrap"><i class="fa-solid fa-earth-americas"></i></div>
+            <div class="metric-info">
+              <span class="metric-number">+20</span>
+              <span class="metric-label">Países</span>
+            </div>
+          </div>
           <div class="metric-card" style="--card-delay: 0.3s;">
             <div class="metric-icon-wrap"><i class="fa-solid fa-building"></i></div>
             <div class="metric-info">
               <span class="metric-number">65</span>
-              <span class="metric-label">Instituciones/ Empresas Participantes</span>
+              <span class="metric-label">Instituciones / Empresas</span>
             </div>
           </div>
-          <div class="metric-card" style="--card-delay: 0.1s;">
+          <div class="metric-card" style="--card-delay: 0.4s;">
             <div class="metric-icon-wrap"><i class="fa-solid fa-user-group"></i></div>
             <div class="metric-info">
               <span class="metric-number">300</span>
@@ -103,83 +109,77 @@
 
       </div>
     </section>
-    <div class="pillar-grid efe-axes-grid">
-  
-      <!-- Eje 1 -->
-      <article class="eje-card">
-        <div class="eje-card-header">
-          <span class="eje-number">01</span>
-          <div class="eje-icon-wrap">
-            <i class="fa-solid fa-chart-line"></i>
-          </div>
-        </div>
-        <div class="eje-card-body">
-          <span class="eje-tag">Mercado y Políticas</span>
-          <h3>1. El Futuro de los Bioinsumos</h3>
-          <p>Tendencias globales, dinamismo del mercado, geopolítica, demanda y políticas públicas que están transformando la agricultura regional.</p>
-        </div>
-        <div class="eje-card-footer">
-          <span class="strategic-prompt"><i class="fa-solid fa-circle-question"></i> ¿Cómo acelerar la adopción en ALC?</span>
-        </div>
-      </article>
-    
-      <!-- Eje 2 -->
-      <article class="eje-card">
-        <div class="eje-card-header">
-          <span class="eje-number">02</span>
-          <div class="eje-icon-wrap">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
-        </div>
-        <div class="eje-card-body">
-          <span class="eje-tag">Calidad y Regulación</span>
-          <h3>2. Cómo Generar Confianza</h3>
-          <p>Calidad de insumos, validación y evidencia científica, servicios de laboratorio, producción <em>on-farm</em> vs. industrial y marcos regulatorios.</p>
-        </div>
-        <div class="eje-card-footer">
-          <span class="strategic-prompt"><i class="fa-solid fa-circle-question"></i> ¿Cómo construir credibilidad y calidad?</span>
-        </div>
-      </article>
-    
-      <!-- Eje 3 -->
-      <article class="eje-card">
-        <div class="eje-card-header">
-          <span class="eje-number">03</span>
-          <div class="eje-icon-wrap">
-            <i class="fa-solid fa-flask-vial"></i>
-          </div>
-        </div>
-        <div class="eje-card-body">
-          <span class="eje-tag">Ciencia y Emprendimiento</span>
-          <h3>3. Innovación Biológica</h3>
-          <p>Modelos de transferencia tecnológica, <em>startups</em>, <em>spin-offs</em>, propiedad intelectual e inversión estratégica entre ciencia e industria.</p>
-        </div>
-        <div class="eje-card-footer">
-          <span class="strategic-prompt"><i class="fa-solid fa-circle-question"></i> ¿Cómo llevar la ciencia al mercado?</span>
-        </div>
-      </article>
-    
-      <!-- Eje 4 -->
-      <article class="eje-card">
-        <div class="eje-card-header">
-          <span class="eje-number">04</span>
-          <div class="eje-icon-wrap">
-            <i class="fa-solid fa-seedling"></i>
-          </div>
-        </div>
-        <div class="eje-card-body">
-          <span class="eje-tag">Sostenibilidad y Comercio</span>
-          <h3>4. Ventaja Competitiva</h3>
-          <p>Productividad, acceso a mercados internacionales, límites máximos de residuos (LMR), normativas como EUDR y resiliencia agrícola.</p>
-        </div>
-        <div class="eje-card-footer">
-          <span class="strategic-prompt"><i class="fa-solid fa-circle-question"></i> ¿Cómo liderar en el comercio global?</span>
-        </div>
-      </article>
-    
-    </div>
 
-    <!-- SECCIÓN: BIOINPUTS AMERICAS WEEK (CRONOGRAMA DE LA SEMANA) -->
+    <!-- EJES TEMÁTICOS / EJES DE TRABAJO -->
+    <section class="container">
+      <div class="pillar-grid efe-axes-grid">
+        <!-- Eje 1 -->
+        <article class="eje-card">
+          <div class="eje-card-header">
+            <span class="eje-number">01</span>
+            <div class="eje-icon-wrap"><i class="fa-solid fa-chart-line"></i></div>
+          </div>
+          <div class="eje-card-body">
+            <span class="eje-tag">Mercado y Políticas</span>
+            <h3>1. El Futuro de los Bioinsumos</h3>
+            <p>Tendencias globales, dinamismo del mercado, geopolítica, demanda y políticas públicas que están transformando la agricultura regional.</p>
+          </div>
+          <div class="eje-card-footer">
+            <span class="strategic-prompt"><i class="fa-solid fa-circle-question"></i> ¿Cómo acelerar la adopción en ALC?</span>
+          </div>
+        </article>
+      
+        <!-- Eje 2 -->
+        <article class="eje-card">
+          <div class="eje-card-header">
+            <span class="eje-number">02</span>
+            <div class="eje-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+          </div>
+          <div class="eje-card-body">
+            <span class="eje-tag">Calidad y Regulación</span>
+            <h3>2. Cómo Generar Confianza</h3>
+            <p>Calidad de insumos, validación y evidencia científica, servicios de laboratorio, producción <em>on-farm</em> vs. industrial y marcos regulatorios.</p>
+          </div>
+          <div class="eje-card-footer">
+            <span class="strategic-prompt"><i class="fa-solid fa-circle-question"></i> ¿Cómo construir credibilidad y calidad?</span>
+          </div>
+        </article>
+      
+        <!-- Eje 3 -->
+        <article class="eje-card">
+          <div class="eje-card-header">
+            <span class="eje-number">03</span>
+            <div class="eje-icon-wrap"><i class="fa-solid fa-flask-vial"></i></div>
+          </div>
+          <div class="eje-card-body">
+            <span class="eje-tag">Ciencia y Emprendimiento</span>
+            <h3>3. Innovación Biológica</h3>
+            <p>Modelos de transferencia tecnológica, <em>startups</em>, <em>spin-offs</em>, propiedad intelectual e inversión estratégica entre ciencia e industria.</p>
+          </div>
+          <div class="eje-card-footer">
+            <span class="strategic-prompt"><i class="fa-solid fa-circle-question"></i> ¿Cómo llevar la ciencia al mercado?</span>
+          </div>
+        </article>
+      
+        <!-- Eje 4 -->
+        <article class="eje-card">
+          <div class="eje-card-header">
+            <span class="eje-number">04</span>
+            <div class="eje-icon-wrap"><i class="fa-solid fa-seedling"></i></div>
+          </div>
+          <div class="eje-card-body">
+            <span class="eje-tag">Sostenibilidad y Comercio</span>
+            <h3>4. Ventaja Competitiva</h3>
+            <p>Productividad, acceso a mercados internacionales, límites máximos de residuos (LMR), normativas como EUDR y resiliencia agrícola.</p>
+          </div>
+          <div class="eje-card-footer">
+            <span class="strategic-prompt"><i class="fa-solid fa-circle-question"></i> ¿Cómo liderar en el comercio global?</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CRONOGRAMA DE LA SEMANA -->
     <section id="semana-bioinputs" class="semana-timeline-section">
       <div class="container" style="padding-top: 0px">
         <div class="section-title-wrap text-center">
@@ -189,25 +189,21 @@
         </div>
 
         <div class="timeline-week-grid">
-          <!-- Día 1 -->
           <div class="timeline-day-card">
             <div class="day-badge yellow-bg">21 SEP</div>
             <h4>Mesas de Trabajo y Talleres</h4>
             <p>Actualización, colaboración y construcción coordinada de agendas comunes para el sector.</p>
           </div>
-          <!-- Día 2 y 3 -->
           <div class="timeline-day-card highlight-day">
             <div class="day-badge green-bg">22-23 SEP</div>
             <h4>4.º Foro Panamericano de Bioinsumos</h4>
             <p>Conferencias magistrales con referentes internacionales, paneles estratégicos y diálogos de política.</p>
           </div>
-          <!-- Día 4 -->
           <div class="timeline-day-card">
             <div class="day-badge yellow-bg">24 SEP</div>
             <h4>Gira Técnica de Campo</h4>
             <p>Visitas a experiencias destacadas en el desarrollo y uso práctico de bioinsumos en fincas de Costa Rica.</p>
           </div>
-          <!-- Día 5 -->
           <div class="timeline-day-card">
             <div class="day-badge yellow-bg">25 SEP</div>
             <h4>Sesión con Tomadores de Decisiones</h4>
@@ -217,16 +213,15 @@
       </div>
     </section>
 
-    <!-- SECCIÓN: ANTIGUOS FOROS (LÍNEA DE TIEMPO HISTÓRICA) -->
+    <!-- LÍNEA DE TIEMPO HISTÓRICA -->
     <section id="linea-tiempo" class="container historical-section">
-      <div class="section-title-wrap">
+      <div class="section-title-wrap text-center">
         <h2>Nuestra Trayectoria</h2>
         <p>El Foro Panamericano es un esfuerzo sostenido a través de los años para la consolidación agroecológica.</p>
       </div>
     
       <div class="history-timeline">
-        
-        <!-- Item 1: Panamá -->
+        <!-- Panamá -->
         <div class="history-item">
           <div class="history-badge">
             <span class="history-year">1.er Foro</span>
@@ -240,13 +235,13 @@
               <div class="hero-gallery">
                 <div class="swiper heroSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/images/11.jpg" alt="Foto 11"></div>
-                    <div class="swiper-slide"><img src="assets/images/12.jpg" alt="Foto 12"></div>
-                    <div class="swiper-slide"><img src="assets/images/13.jpg" alt="Foto 13"></div>
-                    <div class="swiper-slide"><img src="assets/images/14.jpg" alt="Foto 14"></div>
-                    <div class="swiper-slide"><img src="assets/images/15.jpg" alt="Foto 15"></div>
-                    <div class="swiper-slide"><img src="assets/images/16.jpg" alt="Foto 16"></div>
-                    <div class="swiper-slide"><img src="assets/images/17.jpg" alt="Foto 17"></div>
+                    <div class="swiper-slide"><img src="assets/images/11.jpg" alt="Panamá foto 1"></div>
+                    <div class="swiper-slide"><img src="assets/images/12.jpg" alt="Panamá foto 2"></div>
+                    <div class="swiper-slide"><img src="assets/images/13.jpg" alt="Panamá foto 3"></div>
+                    <div class="swiper-slide"><img src="assets/images/14.jpg" alt="Panamá foto 4"></div>
+                    <div class="swiper-slide"><img src="assets/images/15.jpg" alt="Panamá foto 5"></div>
+                    <div class="swiper-slide"><img src="assets/images/16.jpg" alt="Panamá foto 6"></div>
+                    <div class="swiper-slide"><img src="assets/images/17.jpg" alt="Panamá foto 7"></div>
                   </div>
                   <div class="swiper-pagination"></div>
                   <div class="swiper-button-prev"></div>
@@ -257,7 +252,7 @@
           </div>
         </div>
     
-        <!-- Item 2: Uruguay -->
+        <!-- Uruguay -->
         <div class="history-item">
           <div class="history-badge">
             <span class="history-year">2.º Foro</span>
@@ -271,14 +266,14 @@
               <div class="hero-gallery">
                 <div class="swiper heroSwiper">
                   <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="assets/images/21.jpg" alt="Foto 21"></div>
-                    <div class="swiper-slide"><img src="assets/images/22.jpg" alt="Foto 22"></div>
-                    <div class="swiper-slide"><img src="assets/images/23.jpg" alt="Foto 23"></div>
-                    <div class="swiper-slide"><img src="assets/images/24.jpg" alt="Foto 24"></div>
-                    <div class="swiper-slide"><img src="assets/images/25.jpg" alt="Foto 25"></div>
-                    <div class="swiper-slide"><img src="assets/images/26.jpg" alt="Foto 26"></div>
-                    <div class="swiper-slide"><img src="assets/images/27.jpg" alt="Foto 27"></div>
-                    <div class="swiper-slide"><img src="assets/images/28.jpg" alt="Foto 28"></div>
+                    <div class="swiper-slide"><img src="assets/images/21.jpg" alt="Uruguay foto 1"></div>
+                    <div class="swiper-slide"><img src="assets/images/22.jpg" alt="Uruguay foto 2"></div>
+                    <div class="swiper-slide"><img src="assets/images/23.jpg" alt="Uruguay foto 3"></div>
+                    <div class="swiper-slide"><img src="assets/images/24.jpg" alt="Uruguay foto 4"></div>
+                    <div class="swiper-slide"><img src="assets/images/25.jpg" alt="Uruguay foto 5"></div>
+                    <div class="swiper-slide"><img src="assets/images/26.jpg" alt="Uruguay foto 6"></div>
+                    <div class="swiper-slide"><img src="assets/images/27.jpg" alt="Uruguay foto 7"></div>
+                    <div class="swiper-slide"><img src="assets/images/28.jpg" alt="Uruguay foto 8"></div>
                   </div>
                   <div class="swiper-pagination"></div>
                   <div class="swiper-button-prev"></div>
@@ -289,7 +284,7 @@
           </div>
         </div>
     
-        <!-- Item 3: Colombia -->
+        <!-- Colombia -->
         <div class="history-item">
           <div class="history-badge">
             <span class="history-year">3.er Foro</span>
@@ -302,132 +297,74 @@
               
               <div class="hero-gallery">
                 <div class="swiper heroSwiper">
-            
-                    <div class="swiper-wrapper">
-            
-                        <div class="swiper-slide">
-                            <img src="assets/images/31.jpg" alt="Foto 31">
-                        </div>
-            
-                        <div class="swiper-slide">
-                            <img src="assets/images/32.jpg" alt="Foto 32">
-                        </div>
-            
-                        <div class="swiper-slide">
-                            <img src="assets/images/33.jpg" alt="Foto 33">
-                        </div>
-            
-                        <div class="swiper-slide">
-                            <img src="assets/images/34.webp" alt="Foto 34">
-                        </div>
-    
-                        <div class="swiper-slide">
-                          <img src="assets/images/35.webp" alt="Foto 35">
-                      </div>
-                      <div class="swiper-slide">
-                        <img src="assets/images/36.webp" alt="Foto 36">
-                    </div>
-                    <div class="swiper-slide">
-                      <img src="assets/images/37.jpeg" alt="Foto 37">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="assets/images/31.jpg" alt="Colombia foto 1"></div>
+                    <div class="swiper-slide"><img src="assets/images/32.jpg" alt="Colombia foto 2"></div>
+                    <div class="swiper-slide"><img src="assets/images/33.jpg" alt="Colombia foto 3"></div>
+                    <div class="swiper-slide"><img src="assets/images/34.webp" alt="Colombia foto 4"></div>
+                    <div class="swiper-slide"><img src="assets/images/35.webp" alt="Colombia foto 5"></div>
+                    <div class="swiper-slide"><img src="assets/images/36.webp" alt="Colombia foto 6"></div>
+                    <div class="swiper-slide"><img src="assets/images/37.jpeg" alt="Colombia foto 7"></div>
+                    <div class="swiper-slide"><img src="assets/images/38.jpg" alt="Colombia foto 8"></div>
+                    <div class="swiper-slide"><img src="assets/images/39.jpg" alt="Colombia foto 9"></div>
+                    <div class="swiper-slide"><img src="assets/images/310.jpg" alt="Colombia foto 10"></div>
                   </div>
-                      <div class="swiper-slide">
-                      <img src="assets/images/38.jpg" alt="Foto 38">
-                  </div>
-                      <div class="swiper-slide">
-                      <img src="assets/images/39.jpg" alt="Foto 39">
-                  </div>
-                      <div class="swiper-slide">
-                      <img src="assets/images/310.jpg" alt="Foto 310">
-                  </div>
-                </div>
                   <div class="swiper-pagination"></div>
                   <div class="swiper-button-prev"></div>
                   <div class="swiper-button-next"></div>
-                
+                </div>
               </div>
             </div>
           </div>
         </div>
-    
       </div>
     </section>
-    <!-- SECCIÓN: CARUSEL DE ORGANIZADORES Y APOYO INSTITUCIONAL -->
+
+    <!-- ORGANIZADORES -->
     <section class="sponsors-carousel-section" style="padding-top: 40px;">
       <div class="container text-center" style="padding: 0px;">
         <h3>Apoyo Institucional y Organizadores</h3>
         <div class="sponsors-logos-wrap">
           <img src="assets/images/LogoMAG.png" alt="Ministerio de Agricultura y Ganadería">
-          <!-- Espacio para los logos vectoriales o imágenes transparentes del BID e IICA -->
           <img style="max-height: 90px;" src="assets/images/BID_Colores_AltaRes.png" alt="BID">
-          <img src="assets/images/iica_logo.svg" alt="Instituto interamericano de cooperación para la agricultura">
+          <img src="assets/images/iica_logo.svg" alt="Instituto Interamericano de Cooperación para la Agricultura">
         </div>
       </div>
     </section>
 
-    <!-- SECCIÓN: FORMULARIO Y CONTACTO -->
+    <!-- CONTACTO Y SEDE -->
     <section id="registro" class="container contact-registration-section">
-      
+      <div class="contact-info-wrap">
+        <h3>Información del Evento y Sede</h3>
+        <p style="margin-bottom: 15px;">Las actividades principales de la <strong>Bioinputs Americas Week 2026</strong> se llevarán a cabo de forma híbrida desde San José, Costa Rica.</p>
         
-    
-      
-
-        <!-- Información de Sede e Información de Contacto -->
-        <div class="contact-info-wrap">
-          <h3>Información del Evento y Sede</h3>
-          <p style="margin-bottom: 15px;">Las actividades principales de la <strong>Bioinputs Americas Week 2026</strong> se llevarán a cabo de forma híbrida desde San José, Costa Rica.</p>
-          
-          <section class="hero-gallery">
-
-            <div class="swiper heroSwiper">
-        
-                <div class="swiper-wrapper">
-        
-                    <div class="swiper-slide">
-                        <img src="assets/images/sede1.jpg" alt="Foto 1">
-                    </div>
-        
-                    <div class="swiper-slide">
-                        <img src="assets/images/sede2.jpg" alt="Foto 2">
-                    </div>
-        
-                    <div class="swiper-slide">
-                        <img src="assets/images/sede3.jpg" alt="Foto 3">
-                    </div>
-        
-                    <div class="swiper-slide">
-                        <img src="assets/images/sede4.jpg" alt="Foto 4">
-                    </div>
-
-                    <div class="swiper-slide">
-                      <img src="assets/images/sede5.jpg" alt="Foto 5">
-                  </div>
-        
-                </div>
-        
-                <div class="swiper-pagination"></div>
-        
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-        
+        <div class="hero-gallery">
+          <div class="swiper heroSwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="assets/images/sede1.jpg" alt="Sede IICA foto 1"></div>
+              <div class="swiper-slide"><img src="assets/images/sede2.jpg" alt="Sede IICA foto 2"></div>
+              <div class="swiper-slide"><img src="assets/images/sede3.jpg" alt="Sede IICA foto 3"></div>
+              <div class="swiper-slide"><img src="assets/images/sede4.jpg" alt="Sede IICA foto 4"></div>
+              <div class="swiper-slide"><img src="assets/images/sede5.jpg" alt="Sede IICA foto 5"></div>
             </div>
-        
-        </section>
-        
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-          <div class="direct-contact-box">
-            <h4>¿Consultas directas o propuestas de prensa?</h4>
-            <a href="mailto:phbioinsumos@iica.int" class="email-link">
-              <i class="fa-solid fa-envelope"></i> phbioinsumos@iica.int
-            </a>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
           </div>
         </div>
-
-      
+        
+        <div class="direct-contact-box">
+          <h4>¿Consultas directas o propuestas de prensa?</h4>
+          <a href="mailto:phbioinsumos@iica.int" class="email-link">
+            <i class="fa-solid fa-envelope"></i> phbioinsumos@iica.int
+          </a>
+        </div>
+      </div>
     </section>
 
   </main>
 
-  <!-- FOOTER INSTITUCIONAL OSCURO (Reutiliza tus clases base) -->
+  <!-- FOOTER -->
   <footer class="main-footer">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -456,6 +393,9 @@
       <p>&copy; 2026 Bioinsumos Foro Micrositio.</p>
     </div>
   </footer>
+
+  <!-- SCRIPTS AL FINAL DEL BODY -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/index.js"></script>
 </body>
 </html>
