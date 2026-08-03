@@ -483,3 +483,44 @@ body {
     width: auto;           /* Recuperan su tamaño según el contenido */
   }
 }
+/* Regla de oro para evitar que CUALQUIER imagen desborde la pantalla */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ajuste para el título del foro */
+.foro-title-img {
+  max-width: 100%;
+  width: 100%;
+  max-width: 550px; /* Evita que crezca excesivamente en pantallas grandes */
+  height: auto;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+}
+
+/* Ajuste de ilustraciones decorativas */
+.bg-decoration img {
+  position: absolute;
+  width: 45vw;         /* En móviles escala según el ancho de la pantalla */
+  max-width: 400px;    /* No crecerá más de 400px */
+  min-width: 180px;    /* Ni se hará invisiblemente pequeña */
+  height: auto;
+  opacity: 0.5;        /* Bajamos opacidad en móvil para no tapar texto */
+  pointer-events: none;
+}
+
+/* Reorientación segura de posiciones en móvil para que no empujen el layout */
+@media (max-width: 768px) {
+  .butterfly { top: 12%; right: -10%; }
+  .hummingbird { top: 38%; left: -10%; }
+  .flower { bottom: 5%; left: -10%; }
+  .frog { bottom: 20%; right: -10%; }
+}
+
+.history-content h4 .flag {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif !important;
+  font-size: 1.25rem;
+  display: inline-block;
+  line-height: 1;
+}
