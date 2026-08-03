@@ -205,14 +205,14 @@
 
 /* Contenedor principal */
 .historical-section {
-  padding: 3rem 1.5rem;
+  padding: 4rem 1.5rem;
 }
 
 .history-timeline {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 3rem; /* Espacio vertical en pantallas móviles */
   margin-top: 3rem;
 }
 
@@ -222,17 +222,17 @@
     flex-direction: row;
     align-items: stretch;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem; /* Separación ampliada entre columnas en escritorio */
   }
 
-  /* Línea conecta horizontal */
+  /* Línea horizontal conectora */
   .history-timeline::before {
     content: '';
     position: absolute;
-    top: 18px;
-    left: 10%;
-    right: 10%;
-    height: 3px;
+    top: 20px;
+    left: 8%;
+    right: 8%;
+    height: 2px;
     background: var(--border, #e2e8f0);
     z-index: 0;
   }
@@ -254,7 +254,7 @@
 /* Badge con el año/número de foro */
 .history-badge {
   text-align: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .history-year {
@@ -263,18 +263,18 @@
   color: #ffffff;
   font-size: 0.85rem;
   font-weight: 700;
-  padding: 0.35rem 0.85rem;
+  padding: 0.35rem 0.9rem;
   border-radius: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* Tarjetas con más aire y sensación orgánica */
+/* Tarjetas con más aire */
 .history-content {
   background: var(--surface, #ffffff);
-  border-radius: 18px;
+  border-radius: 16px;
   border: 1px solid var(--border, #edf2f7);
-  padding: 1.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  padding: 1.75rem 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   flex-grow: 1;
   display: flex;
@@ -283,48 +283,50 @@
 
 .history-content:hover {
   transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
 }
 
-/* Tipografía e iconografía */
+/* Tipografía */
 .history-content h4 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--primary, #2e7d32);
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   font-weight: 600;
 }
 
 .history-content h4 .flag {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
 }
 
 .history-content h3 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--text, #1a202c);
   margin-bottom: 0.75rem;
   line-height: 1.35;
 }
 
 .history-content p {
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   color: #64748b;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
 
-/* Estilos de los carruseles (Mucho más compactos) */
+/* Carrusel de Imágenes Apaisado / Menos Alto */
 .hero-gallery {
-  margin-top: auto; /* Empuja el carrusel al fondo de la tarjeta */
+  margin-top: auto; /* Sitúa el carrusel en la base de la tarjeta */
+  display: flex;
+  justify-content: center;
 }
 
 .heroSwiper {
   width: 100%;
-  max-width: 280px; /* Ancho máximo reducido */
-  height: 160px;    /* Altura compacta */
-  border-radius: 12px;
+  max-width: 260px; /* Ancho ajustado */
+  height: 130px;    /* Reducción importante de altura (menos alargada) */
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
@@ -332,22 +334,22 @@
 .heroSwiper .swiper-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
+  object-fit: cover; /* Mantiene la imagen encuadrada sin deformarse */
+  border-radius: 10px;
 }
 
-/* Ajustes opcionales para los botones del carrusel Swiper en formato compacto */
+/* Flechas y paginación del carrusel */
 .heroSwiper .swiper-button-next,
 .heroSwiper .swiper-button-prev {
-  transform: scale(0.6);
-  color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  transform: scale(0.5);
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .heroSwiper .swiper-pagination-bullet {
-  width: 6px;
-  height: 6px;
-  background: #fff;
+  width: 5px;
+  height: 5px;
+  background: #ffffff;
   opacity: 0.7;
 }
 
