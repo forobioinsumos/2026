@@ -1097,3 +1097,42 @@ img, svg, picture, iframe {
   .hero-content h1 { font-size: 2.2rem; }
   :not(.history-content) .heroSwiper { height: 350px; }
 }
+/* =========================================================
+   TAMAÑO AUMENTADO PARA LOGOS DE ALIADOS / SPONSORS
+========================================================= */
+.sponsors-logos-wrap.sponsors-grid-large {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2.5rem 3rem; /* Mayor espacio horizontal y vertical */
+  margin: 2rem auto;
+  max-width: 1100px;
+}
+
+.sponsors-logos-wrap.sponsors-grid-large img {
+  /* Aumentamos el alto límite para que luzcan prominentes */
+  max-height: 85px !important; 
+  width: auto;
+  max-width: 220px; /* Evita que alguno muy ancho domine la pantalla */
+  object-fit: contain;
+  filter: grayscale(20%); /* Opcional: para dar uniformidad estética */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.sponsors-logos-wrap.sponsors-grid-large img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05); /* Efecto hover elegante al pasar el mouse */
+}
+
+/* Ajuste responsivo para celulares */
+@media (max-width: 768px) {
+  .sponsors-logos-wrap.sponsors-grid-large {
+    gap: 1.5rem 2rem;
+  }
+  
+  .sponsors-logos-wrap.sponsors-grid-large img {
+    max-height: 65px !important;
+    max-width: 160px;
+  }
+}
