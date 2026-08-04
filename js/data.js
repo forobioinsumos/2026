@@ -2,10 +2,16 @@
 // UTILIDADES
 // =====================================
 function convertirLinkDriveAImagen(url) {
-  if (!url) return "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format&fit=crop";
-  const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+  const FALLBACK = "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format&fit=crop";
+  if (!url) return FALLBACK;
+
+  // Extrae el ID de Drive ya sea enlace completo, enlace de compartir o ID directo
+  const match = url.match(/(?:d\/|id=)([a-zA-Z0-9_-]{25,})/);
   if (!match) return url;
-  return `https://docs.google.com/uc?export=view&id=${match[1]}`;
+
+  const fileId = match[1];
+  // Servidor de miniaturas de Google Drive (sz=w800 solicita un ancho de 800px)
+  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w800`;
 }
 
 // =====================================
@@ -54,19 +60,22 @@ async function renderConferencistas() {
   }
 
   container.innerHTML = conferencistas.map((speaker, index) => `
-    <article class="speaker-card">
-      <div class="speaker-img-wrap">
-        <img src="${speaker.foto}" alt="${speaker.nombre}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=600'">
-      </div>
-      <div class="speaker-body">
-        <h3 class="speaker-name">${speaker.nombre}</h3>
-        <p class="speaker-preview">${speaker.detalle}</p>
-        <button class="btn-speaker-more" onclick="abrirModalSpeaker(${index})">
-          Ver detalle <i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </div>
-    </article>
-  `).join("");
+  <article class="speaker-card">
+    <div class="speaker-img-wrap">
+      <img src="${speaker.foto}" 
+           alt="${speaker.nombre}" 
+           loading="lazy" 
+           onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format&fit=crop';">
+    </div>
+    <div class="speaker-body">
+      <h3 class="speaker-name">${speaker.nombre}</h3>
+      <p class="speaker-preview">${speaker.detalle}</p>
+      <button class="btn-speaker-more" onclick="abrirModalSpeaker(${index})">
+        Ver detalle <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </article>
+`).join("");
 
   // Guardamos la lista en window para que el modal la consulte
   window.listaConferencistas = conferencistas;
