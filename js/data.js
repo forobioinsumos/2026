@@ -2,7 +2,7 @@
 // UTILIDADES
 // =====================================
 function convertirLinkDriveAImagen(url) {
-  if (!url) return "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=600";
+  if (!url) return "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format&fit=crop";
   const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
   if (!match) return url;
   return `https://docs.google.com/uc?export=view&id=${match[1]}`;
