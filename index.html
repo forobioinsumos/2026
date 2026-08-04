@@ -412,20 +412,23 @@
     </div>
   </footer>
 
+  <!-- MODAL DETALLE DE CONFERENCISTA -->
+<div id="speaker-modal" class="speaker-modal-overlay" onclick="cerrarModalSpeaker()">
+  <div class="speaker-modal-card" onclick="event.stopPropagation()">
+    <button class="speaker-modal-close" onclick="cerrarModalSpeaker()">&times;</button>
+    <div class="speaker-modal-header">
+      <img id="modal-speaker-img" src="" alt="Conferencista">
+      <h3 id="modal-speaker-name"></h3>
+    </div>
+    <div class="speaker-modal-body">
+      <p id="modal-speaker-bio"></p>
+    </div>
+  </div>
+</div>
+
   <!-- SCRIPTS AL FINAL DEL BODY -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/index.js"></script>
-  <div id="speaker-modal" class="speaker-modal-overlay" onclick="cerrarModalSpeaker()">
-    <div class="speaker-modal-card" onclick="event.stopPropagation()">
-      <button class="speaker-modal-close" onclick="cerrarModalSpeaker()">&times;</button>
-      <div class="speaker-modal-header">
-        <img id="modal-speaker-img" src="" alt="Conferencista">
-        <h3 id="modal-speaker-name"></h3>
-      </div>
-      <div class="speaker-modal-body">
-        <p id="modal-speaker-bio"></p>
-      </div>
-    </div>
-  </div>
+  <script src="js/data.js"></script>
 </body>
 </html>
