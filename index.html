@@ -51,7 +51,7 @@
         <div class="hero-foro-header">
           <!-- Logos Coorganizadores -->
           <div class="sponsors-logos-wrap">
-            <img style="max-height:90px" src="assets/images/Logo_versiones_b_negativo.png" alt="Plataforam Hemisferica de Bioinsumo">
+            <img style="max-height:70px" src="assets/images/Logo_versiones_b_negativo.png" alt="Plataforam Hemisferica de Bioinsumo">
             <img src="assets/images/logo_mag_blanco.svg" alt="Ministerio de Agricultura y Ganadería">
             <img style="max-height:90px" src="assets/images/BID_Blanco.svg" alt="BID">
             <img src="assets/images/iica_logo_blanco.svg" alt="Instituto Interamericano de Cooperación para la Agricultura">
@@ -179,6 +179,22 @@
         </article>
       </div>
     </section>
+    <!-- SECCIÓN CONFERENCISTAS -->
+<section id="conferencistas" class="speakers-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="section-title">Conferencistas Destacados</h2>
+      <p class="section-subtitle">Expertos y especialistas que acompañarán las jornadas del foro</p>
+    </div>
+
+    <!-- Contenedor dinámico de tarjetas -->
+    <div id="speakers-grid" class="speakers-grid">
+      <!-- Inyectado por JS -->
+    </div>
+  </div>
+</section>
+
+<!-- MODAL DETALLE DE CONFERENCISTA -->
 
     <!-- CRONOGRAMA DE LA SEMANA -->
     <section id="semana-bioinputs" class="semana-timeline-section">
@@ -399,5 +415,17 @@
   <!-- SCRIPTS AL FINAL DEL BODY -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/index.js"></script>
+  <div id="speaker-modal" class="speaker-modal-overlay" onclick="cerrarModalSpeaker()">
+    <div class="speaker-modal-card" onclick="event.stopPropagation()">
+      <button class="speaker-modal-close" onclick="cerrarModalSpeaker()">&times;</button>
+      <div class="speaker-modal-header">
+        <img id="modal-speaker-img" src="" alt="Conferencista">
+        <h3 id="modal-speaker-name"></h3>
+      </div>
+      <div class="speaker-modal-body">
+        <p id="modal-speaker-bio"></p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

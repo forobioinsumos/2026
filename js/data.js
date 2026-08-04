@@ -1,7 +1,6 @@
 // =====================================
-// UTILIDADES Y PARSEADORES
+// UTILIDADES
 // =====================================
-
 function convertirLinkDriveAImagen(url) {
   if (!url) return "https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=600";
   const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
@@ -9,143 +8,91 @@ function convertirLinkDriveAImagen(url) {
   return `https://docs.google.com/uc?export=view&id=${match[1]}`;
 }
 
-/**
- * Split inteligente para CSV: Separa por comas, 
- * pero ignora las comas que estén dentro de textos entre comillas.
- */
-function parsearLineaCSV(linea) {
-  const resultado = [];
-  let dentroDeComillas = false;
-  let entradaActual = "";
-
-  for (let i = 0; i < linea.length; i++) {
-    const char = linea[i];
-
-    if (char === '"') {
-      dentroDeComillas = !dentroDeComillas; // Alternar estado
-    } else if (char === ',' && !dentroDeComillas) {
-      resultado.push(entradaActual.trim().replace(/^"|"$/g, ''));
-      entradaActual = "";
-    } else {
-      entradaActual += char;
-    }
-  }
-  resultado.push(entradaActual.trim().replace(/^"|"$/g, ''));
-  return resultado;
-}
-
 // =====================================
-// CONFIGURACIÓN GOOGLE SHEETS
+// EXTRACCIÓN DE CONFERENCISTAS (TSV)
 // =====================================
-const SHEET_BASE = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSugZplAvcSBZjGPZikP3jhTaKA6DtMwZpOZc0_ophORRVGjemhu3Z5JEY3EnsZMUayuhviSia3Gf58/pub?";
+const SHEET_TSV_CONFERENCISTAS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=0&single=true&output=tsv";
 
-// Asegúrate de cambiar el GID de la Tabla 2 por el que te genere Google Sheets
-const SHEET_CSV_BIOFABRICAS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSugZplAvcSBZjGPZikP3jhTaKA6DtMwZpOZc0_ophORRVGjemhu3Z5JEY3EnsZMUayuhviSia3Gf58/pub?gid=0&single=true&output=csv";
-const SHEET_CSV_INNOVACIONES = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSugZplAvcSBZjGPZikP3jhTaKA6DtMwZpOZc0_ophORRVGjemhu3Z5JEY3EnsZMUayuhviSia3Gf58/pub?gid=615287650&single=true&output=csv";
-const SHEET_CSV_RECURSOS     = `${SHEET_BASE}gid=1587744224&single=true&output=csv`;
-
-// =====================================
-// EXTRACCIÓN DE BIOFÁBRICAS (TABLA 1)
-// =====================================
-async function fetchBiofabricas() {
+async function fetchConferencistas() {
   try {
-    const response = await fetch(SHEET_CSV_BIOFABRICAS);
-    const csv = await response.text();
-    // Dividir por saltos de línea sin romper textos largos
-    const rows = csv.split(/\r?\n/).filter(row => row.trim() !== "");
+    const response = await fetch(SHEET_TSV_CONFERENCISTAS);
+    const text = await response.text();
     
+    // Dividir el TSV por saltos de línea
+    const rows = text.split(/\r?\n/).filter(row => row.trim() !== "");
+    
+    // Omitimos la primera fila (encabezado) y mapeamos separando por tabulaciones (\t)
     return rows.slice(1).map(row => {
-      const values = parsearLineaCSV(row);
+      const values = row.split("\t").map(item => item.trim().replace(/^"|"$/g, ''));
+      
       return {
-        id: values[0],
-        name: values[1],
-        lat: parseFloat(values[2]),
-        lng: parseFloat(values[3]),
-        region: values[4],
-        estado: values[5],
-        descripcion: values[6] || "Sin descripción disponible.",
-        imagen: convertirLinkDriveAImagen(values[7]),
-        tags: values[8] ? values[8].split(";") : []
+        nombre: values[0] || "Conferencista Invitado",
+        detalle: values[1] || "Información no disponible.",
+        foto: convertirLinkDriveAImagen(values[2])
       };
     });
   } catch (error) {
-    console.error("Error cargando Biofábricas:", error);
+    console.error("Error cargando Conferencistas desde TSV:", error);
     return [];
   }
 }
 
 // =====================================
-// EXTRACCIÓN DE INNOVACIONES (TABLA 2)
+// RENDERIZADO EN EL DOM
 // =====================================
-async function fetchInnovaciones() {
-  try {
-    const response = await fetch(SHEET_CSV_INNOVACIONES);
-    const csv = await response.text();
-    const rows = csv.split(/\r?\n/).filter(row => row.trim() !== "");
-    
-    return rows.slice(1).map(row => {
-      const values = parsearLineaCSV(row);
-      return {
-        id: values[0],
-        titulo: values[1],
-        categoria: values[2],
-        organizacion: values[3],
-        descripcion: values[4],
-        imagenUrl: convertirLinkDriveAImagen(values[5]),
-        enlaceRecurso: values[6],
-        destacado: values[7] === "SI"
-      };
-    });
-  } catch (error) {
-    console.error("Error cargando Innovaciones:", error);
-    return [];
+async function renderConferencistas() {
+  const container = document.getElementById("speakers-grid");
+  if (!container) return;
+
+  container.innerHTML = `<div class="speakers-loading" style="text-align: center; grid-column: 1/-1; padding: 2rem;"><i class="fa-solid fa-spinner fa-spin"></i> Cargando conferencistas...</div>`;
+
+  const conferencistas = await fetchConferencistas();
+
+  if (conferencistas.length === 0) {
+    container.innerHTML = `<p class="no-data" style="text-align: center; grid-column: 1/-1;">Próximamente confirmación de nuevos ponentes.</p>`;
+    return;
   }
+
+  container.innerHTML = conferencistas.map((speaker, index) => `
+    <article class="speaker-card">
+      <div class="speaker-img-wrap">
+        <img src="${speaker.foto}" alt="${speaker.nombre}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1592417817098-8f3d6eb19675?q=80&w=600'">
+      </div>
+      <div class="speaker-body">
+        <h3 class="speaker-name">${speaker.nombre}</h3>
+        <p class="speaker-preview">${speaker.detalle}</p>
+        <button class="btn-speaker-more" onclick="abrirModalSpeaker(${index})">
+          Ver detalle <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </article>
+  `).join("");
+
+  // Guardamos la lista en window para que el modal la consulte
+  window.listaConferencistas = conferencistas;
 }
 
-// Agrega esta constante junto a las otras URLs de publicación en tu data.js
-const SHEET_CSV_KPIS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSugZplAvcSBZjGPZikP3jhTaKA6DtMwZpOZc0_ophORRVGjemhu3Z5JEY3EnsZMUayuhviSia3Gf58/pub?gid=1232917699&single=true&output=csv";
+// =====================================
+// LÓGICA DE MODALES
+// =====================================
+function abrirModalSpeaker(index) {
+  const speaker = window.listaConferencistas[index];
+  if (!speaker) return;
 
-// =====================================
-// EXTRACCIÓN DE KPIS (TABLA 3)
-// =====================================
-async function fetchKPIs() {
-  try {
-    const response = await fetch(SHEET_CSV_KPIS);
-    const csv = await response.text();
-    const rows = csv.split(/\r?\n/).filter(row => row.trim() !== "");
-    
-    // Mapeamos las filas omitiendo el encabezado (kpi, valor)
-    return rows.slice(1).map(row => {
-      const values = parsearLineaCSV(row);
-      return {
-        kpi: values[0],
-        valor: values[1]
-      };
-    });
-  } catch (error) {
-    console.error("Error cargando KPIs dinámicos:", error);
-    return [];
-  }
+  const modal = document.getElementById("speaker-modal");
+  document.getElementById("modal-speaker-img").src = speaker.foto;
+  document.getElementById("modal-speaker-name").textContent = speaker.nombre;
+  document.getElementById("modal-speaker-bio").textContent = speaker.detalle;
+
+  modal.classList.add("active");
 }
-// =====================================
-// EXTRACCIÓN DE RECURSOS (PILAR 1)
-// =====================================
-async function fetchRecursos() {
-  try {
-    const response = await fetch(SHEET_CSV_RECURSOS);
-    const csv = await response.text();
-    const rows = csv.trim().split(/\r?\n/);
-    
-    return rows.slice(1).map(row => {
-      const values = parseCSVLine(row);
-      return {
-        nombre: values[0],
-        tipo: values[1],
-        categoria: values[2],
-        enlace: values[3]
-      };
-    });
-  } catch (error) {
-    return [];
-  }
+
+function cerrarModalSpeaker() {
+  const modal = document.getElementById("speaker-modal");
+  if (modal) modal.classList.remove("active");
 }
+
+// Ejecutar al cargar el documento
+document.addEventListener("DOMContentLoaded", () => {
+  renderConferencistas();
+});
