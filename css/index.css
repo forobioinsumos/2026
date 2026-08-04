@@ -78,16 +78,16 @@ img, svg, picture, iframe {
   pointer-events: none;
 }
 
-.butterfly { top: 18%; right: 0%; transform: rotate(-15deg); }
-.hummingbird { top: 40%; left: -5%; transform: rotate(18deg); }
-.flower { bottom: 10%; left: -3%; }
+.butterfly { top: 18%; right: 0%; }
+.hummingbird { top: 40%; left: 0%;  }
+.flower { bottom: 10%; left: 0%; }
 .frog { bottom: 25%; right: 0%; }
 
 @media (max-width: 768px) {
-  .butterfly { top: 12%; right: -10%; }
-  .hummingbird { top: 38%; left: -10%; }
-  .flower { bottom: 5%; left: -10%; }
-  .frog { bottom: 20%; right: -10%; }
+  .butterfly { top: 12%; right: 0%; }
+  .hummingbird { top: 38%; left: 0%; }
+  .flower { bottom: 5%; left: 0%; }
+  .frog { bottom: 20%; right: 0%; }
 }
 
 /* =========================================================
