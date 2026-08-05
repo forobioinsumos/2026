@@ -90,14 +90,14 @@ img, svg, picture, iframe {
 
 .butterfly { top: 18%; right: 0%; }
 .butterfly2 { top: 0%; right: 0%; }
-.hummingbird { top: 30%; left: 0%;  }
+.hummingbird { top: 20%; left: 0%;  }
 .hummingbird2 { top: 13%; left: 0%;  }
 .flower { bottom: 10%; left: 0%; }
 .flower2 { bottom: 10%; right: -8%; }
 .frog { bottom: 40%; right: 0%; }
 .frog2 { bottom: 35%; right: 0%; }
 .perez { bottom: 12%; left: 0%; }
-.banano {bottom: 40%; left: -4%;transform: rotate(30deg);}
+.banano {bottom: 40%; left: -4%;transform: rotate(15deg);}
 
 @media (max-width: 768px) {
   .butterfly { top: 7%; right: 0%; }
@@ -109,7 +109,7 @@ img, svg, picture, iframe {
   .frog { bottom: 20%; right: 0%; }
   .frog2 { bottom: 40%; right: 0%; }
   .perez { bottom: 15%; left: 0%; }
-  .banano {bottom: 25%; left: -4%;transform: rotate(30deg);}
+  .banano {bottom: 25%; left: -8%;transform: rotate(15deg);}
 }
 
 /* =========================================================
