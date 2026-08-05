@@ -212,7 +212,7 @@ img, svg, picture, iframe {
 
 .hero-overlay {
   width: 100%;
-  padding: 4rem 5%;
+  padding: 0 5%;
 }
 
 .hero-content {
@@ -296,6 +296,12 @@ img, svg, picture, iframe {
   margin-bottom: 2rem;
   font-weight: 700;
 }
+.hero-date-location2 {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
 
 /* BOTONES Y ACCIONES */
 .hero-actions {
@@ -335,8 +341,8 @@ img, svg, picture, iframe {
 .primary-btn:hover { background: var(--primary-dark); }
 
 .btn-highlight {
-  background-color: var(--event-gold) !important;
-  color: var(--dark-slate) !important;
+  background-color: var(--primary) !important;
+  color: white !important;
 }
 .btn-highlight:hover {
   background-color: var(--event-gold-dark) !important;
