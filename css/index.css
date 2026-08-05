@@ -97,7 +97,7 @@ img, svg, picture, iframe {
 .frog { bottom: 40%; right: 0%; }
 .frog2 { bottom: 35%; right: 0%; }
 .perez { bottom: 12%; left: 0%; }
-.banano {bottom: 40%; left: -4%;transform: rotate(15deg);}
+.banano {bottom: 40%; left: -8%;transform: rotate(5deg);max-width: 700px !important;}
 
 @media (max-width: 768px) {
   .butterfly { top: 7%; right: 0%; }
