@@ -203,6 +203,13 @@ img, svg, picture, iframe {
   text-align: center;
 }
 
+.hero-foro2 {
+  min-height: 60vh !important;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
 .hero-overlay {
   width: 100%;
   padding: 4rem 5%;
