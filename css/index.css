@@ -105,6 +105,18 @@ img, svg, picture, iframe {
   padding: 0.5rem 5%;
   border-bottom: 1px solid var(--border);
 }
+.topbar2 {
+  position: sticky;
+  top: 0;
+  z-index: 2000;
+  background: var(--primary);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 5%;
+  border-bottom: 1px solid var(--border);
+}
 
 .logo-wrap {
   font-size: 1.3rem;
@@ -123,7 +135,7 @@ img, svg, picture, iframe {
   background: rgba(22, 101, 52, 0.05);
 }
 
-.nav { 
+.nav,.nav2  { 
   display: flex; 
   gap: 1.5rem; 
 }
@@ -139,6 +151,19 @@ img, svg, picture, iframe {
 
 .nav a:hover, .nav a.active {
   color: var(--primary);
+}
+
+.nav2 a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: .25s ease;
+}
+
+.nav2 a:hover, .nav2 a.active {
+  color: var(--event-gold);
 }
 
 .menu-toggle {
@@ -1082,7 +1107,7 @@ img, svg, picture, iframe {
 @media (max-width: 768px) {
   .menu-toggle { display: flex; }
   
-  .nav {
+  .nav,.nav2 {
     display: none;
     position: absolute;
     top: 100%; left: 0; right: 0;
@@ -1093,7 +1118,7 @@ img, svg, picture, iframe {
     box-shadow: 0 10px 15px rgba(0,0,0,0.05);
   }
   
-  .nav.open { display: flex; }
+  .nav.open,.nav2.open { display: flex; }
   .hero-content h1 { font-size: 2.2rem; }
   :not(.history-content) .heroSwiper { height: 350px; }
 }
