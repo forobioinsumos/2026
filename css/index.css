@@ -224,7 +224,7 @@ img, svg, picture, iframe {
 
 .hero-overlay {
   width: 100%;
-  padding: 0 5%;
+  padding: 1rem 5%;
 }
 
 .hero-content {
