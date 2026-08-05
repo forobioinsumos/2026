@@ -82,7 +82,7 @@ img, svg, picture, iframe {
   position: absolute;
   width: 45vw;
   max-width: 400px;
-  min-width: 180px;
+  min-width: 250px;
   height: auto;
   opacity: 0.8;
   pointer-events: none;
@@ -97,7 +97,7 @@ img, svg, picture, iframe {
 .frog { bottom: 40%; right: 0%; }
 .frog2 { bottom: 35%; right: 0%; }
 .perez { bottom: 12%; left: 0%; }
-.banano {bottom: 50%; left: -12%;transform: rotate(5deg);max-width: 700px !important;}
+.banano {bottom: 42%; left: -13%;transform: rotate(5deg);max-width: 700px !important;}
 
 @media (max-width: 768px) {
   .butterfly { top: 7%; right: 0%; }
