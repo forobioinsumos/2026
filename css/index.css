@@ -71,8 +71,8 @@ img, svg, picture, iframe {
 .bg-decoration img {
   position: absolute;
   width: 45vw;
-  max-width: 400px;
-  min-width: 180px;
+  max-width: 600px;
+  min-width: 150px;
   height: auto;
   opacity: 0.5;
   pointer-events: none;
@@ -91,19 +91,23 @@ img, svg, picture, iframe {
 .butterfly { top: 18%; right: 0%; }
 .butterfly2 { top: 0%; right: 0%; }
 .hummingbird { top: 40%; left: 0%;  }
-.hummingbird2 { top: 12%; left: 0%;  }
+.hummingbird2 { top: 13%; left: 0%;  }
 .flower { bottom: 10%; left: 0%; }
-.flower2 { bottom: 10%; right: 2%; }
+.flower2 { bottom: 10%; right: 0%; }
 .frog { bottom: 25%; right: 0%; }
+.frog2 { bottom: 40%; right: 0%; }
+.perez { bottom: 20%; left: 0%; }
 
 @media (max-width: 768px) {
   .butterfly { top: 9%; right: 0%; }
   .butterfly2 { top: 0%; right: 0%; }
   .hummingbird { top: 38%; left: 0%; }
-  .hummingbird2 { top: 8%; left: 0%;  }
+  .hummingbird2 { top: 12%; left: 0%;  }
   .flower { bottom: 5%; left: 0%; }
-  .flower2 { bottom: 5%; right: 2%; }
+  .flower2 { bottom: 5%; right: 0%; }
   .frog { bottom: 20%; right: 0%; }
+  .frog2 { bottom: 40%; right: 0%; }
+  .perez { bottom: 20%; left: 0%; }
 }
 
 /* =========================================================
