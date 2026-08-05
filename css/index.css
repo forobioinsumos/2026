@@ -1112,12 +1112,20 @@ img, svg, picture, iframe {
 
 .sponsors-logos-wrap.sponsors-grid-large img {
   /* Aumentamos el alto límite para que luzcan prominentes */
-  max-height: 200px !important; 
-  width: auto;
-  max-width: 220px; /* Evita que alguno muy ancho domine la pantalla */
+   /* Evita que alguno muy ancho domine la pantalla */
   object-fit: contain;
   filter: grayscale(20%); /* Opcional: para dar uniformidad estética */
   transition: transform 0.3s ease, filter 0.3s ease;
+}
+.sponsors-logos-o {
+  max-height: 200px !important; 
+  width: auto;
+  max-width: 220px;
+}
+.fao{
+  max-height:150px !important; 
+  width: auto;
+  max-width: 165px !important;
 }
 
 .sponsors-logos-wrap.sponsors-grid-large img:hover {
@@ -1131,8 +1139,8 @@ img, svg, picture, iframe {
     gap: 1.5rem 2rem;
   }
   
-  .sponsors-logos-wrap.sponsors-grid-large img {
-    max-height: 65px !important;
+  .sponsors-logos-o {
+    max-height: 65px !important;;
     max-width: 160px;
   }
   .fao{
@@ -1144,7 +1152,6 @@ img, svg, picture, iframe {
 ========================================================= */
 .speakers-section {
   padding: 4rem 1rem;
-  background-color: var(--surface-alt, #f8fafc);
 }
 
 .speakers-grid {
