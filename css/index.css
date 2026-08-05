@@ -93,21 +93,23 @@ img, svg, picture, iframe {
 .hummingbird { top: 40%; left: 0%;  }
 .hummingbird2 { top: 13%; left: 0%;  }
 .flower { bottom: 10%; left: 0%; }
-.flower2 { bottom: 10%; right: 0%; }
+.flower2 { bottom: 10%; right: -8%; }
 .frog { bottom: 25%; right: 0%; }
-.frog2 { bottom: 40%; right: 0%; }
-.perez { bottom: 20%; left: 0%; }
+.frog2 { bottom: 35%; right: 0%; }
+.perez { bottom: 12%; left: 0%; }
+.banano {bottom: 25%; left: -4%;transform: rotate(30deg);}
 
 @media (max-width: 768px) {
-  .butterfly { top: 9%; right: 0%; }
+  .butterfly { top: 7%; right: 0%; }
   .butterfly2 { top: 0%; right: 0%; }
   .hummingbird { top: 38%; left: 0%; }
   .hummingbird2 { top: 12%; left: 0%;  }
-  .flower { bottom: 5%; left: 0%; }
-  .flower2 { bottom: 5%; right: 0%; }
+  .flower { bottom: 7%; left: 0%; }
+  .flower2 { bottom: 7%; right: -8%; }
   .frog { bottom: 20%; right: 0%; }
   .frog2 { bottom: 40%; right: 0%; }
-  .perez { bottom: 20%; left: 0%; }
+  .perez { bottom: 15%; left: 0%; }
+  .banano {bottom: 25%; left: -4%;transform: rotate(30deg);}
 }
 
 /* =========================================================
