@@ -105,40 +105,40 @@ async function renderConferencistas() {
   window.listaConferencistas = conferencistas;
 }
 
+// =====================================
+// RENDERIZADO DE LOGOS INSTITUCIONALES
+// =====================================
 async function renderLogos() {
-  const container = document.getElementById("speakers-grid");
+  const container = document.getElementById("logos-grid");
   if (!container) return;
 
-  container.innerHTML = `<div class="speakers-loading" style="text-align: center; grid-column: 1/-1; padding: 2rem;"><i class="fa-solid fa-spinner fa-spin"></i> Cargando conferencistas...</div>`;
+  container.innerHTML = `
+    <div class="logos-loading" style="text-align: center; grid-column: 1/-1; padding: 1.5rem; color: var(--muted);">
+      <i class="fa-solid fa-spinner fa-spin"></i> Cargando instituciones...
+    </div>`;
 
-  const conferencistas = await fetchLogos();
+  const logos = await fetchLogos();
 
-  if (conferencistas.length === 0) {
-    container.innerHTML = `<p class="no-data" style="text-align: center; grid-column: 1/-1;">Próximamente confirmación de nuevos ponentes.</p>`;
+  if (logos.length === 0) {
+    container.innerHTML = `<p class="no-data" style="text-align: center; grid-column: 1/-1; color: var(--muted);">Próximamente más instituciones.</p>`;
     return;
   }
 
-  container.innerHTML = conferencistas.map((speaker, index) => `
-  <article class="speaker-card">
-    <div class="speaker-img-wrap">
-      <img src="${speaker.foto}" 
-           alt="${speaker.nombre}" 
+  container.innerHTML = logos.map(logo => `
+    <div class="logo-card" title="${logo.nombre}">
+      <img src="${logo.foto}" 
+           alt="${logo.nombre}" 
            loading="lazy" 
-           onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format&fit=crop';">
+           onerror="this.onerror=null; this.src='assets/images/favicon.svg';">
     </div>
-    <div class="speaker-body">
-      <h3 class="speaker-name">${speaker.nombre}</h3>
-      <p class="speaker-preview">${speaker.detalle}</p>
-      <button class="btn-speaker-more" onclick="abrirModalSpeaker(${index})">
-        Ver detalle <i class="fa-solid fa-arrow-right"></i>
-      </button>
-    </div>
-  </article>
-`).join("");
-
-  // Guardamos la lista en window para que el modal la consulte
-  window.listaConferencistas = conferencistas;
+  `).join("");
 }
+
+// Ejecutar ambas cargas al iniciar
+document.addEventListener("DOMContentLoaded", () => {
+  renderConferencistas();
+  renderLogos();
+});
 
 // =====================================
 // LÓGICA DE MODALES
