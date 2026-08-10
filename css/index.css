@@ -88,7 +88,7 @@ img, svg, picture, iframe {
   pointer-events: none;
 }
 
-.butterfly { top: 18%; right: 0%; }
+.butterfly { top: 16%; right: 0%; }
 .butterfly2 { top: 0%; right: 0%; }
 .hummingbird { top: 20%; left: 0%;  }
 .hummingbird2 { top: 13%; left: 0%;  }
@@ -100,7 +100,7 @@ img, svg, picture, iframe {
 .banano {bottom: 42%; left: -13%;transform: rotate(5deg);max-width: 700px !important;}
 
 @media (max-width: 768px) {
-  .butterfly { top: 7%; right: 0%; }
+  .butterfly { top: 6%; right: 0%; }
   .butterfly2 { top: 0%; right: 0%; }
   .hummingbird { top: 38%; left: 0%; }
   .hummingbird2 { top: 12%; left: 0%;  }
@@ -1398,7 +1398,7 @@ img, svg, picture, iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
   max-width: 1100px;
   margin: 2rem auto 0 auto;
 }
