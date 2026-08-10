@@ -44,21 +44,28 @@ async function fetchConferencistas() {
   }
 }
 
+// =====================================
+// EXTRACCIÓN DE LOGOS (TSV)
+// =====================================
 async function fetchLogos() {
   try {
     const response = await fetch(SHEET_TSV_LOGOS);
     const text = await response.text();
     
-    // Dividir el TSV por saltos de línea
     const rows = text.split(/\r?\n/).filter(row => row.trim() !== "");
     
-    // Omitimos la primera fila (encabezado) y mapeamos separando por tabulaciones (\t)
     return rows.slice(1).map(row => {
       const values = row.split("\t").map(item => item.trim().replace(/^"|"$/g, ''));
       
+      // Limpiar el valor del porcentaje ingresado en el Excel
+      let escala = values[2] ? values[2].replace('%', '').trim() : "100";
+      // Si el usuario deja la celda vacía o pone un valor no numérico, usa 100% por defecto
+      if (isNaN(escala) || escala === "") escala = "100";
+
       return {
-        nombre: values[0] || "lOGO",
-        foto: convertirLinkDriveAImagen(values[1])
+        nombre: values[0] || "Logo",
+        foto: convertirLinkDriveAImagen(values[1]),
+        escala: escala // Ej: 80, 100, 120
       };
     });
   } catch (error) {
@@ -66,6 +73,8 @@ async function fetchLogos() {
     return [];
   }
 }
+
+
 
 // =====================================
 // RENDERIZADO EN EL DOM
@@ -106,7 +115,7 @@ async function renderConferencistas() {
 }
 
 // =====================================
-// RENDERIZADO DE LOGOS INSTITUCIONALES
+// RENDERIZADO DE LOGOS
 // =====================================
 async function renderLogos() {
   const container = document.getElementById("logos-grid");
@@ -128,12 +137,12 @@ async function renderLogos() {
     <div class="logo-card" title="${logo.nombre}">
       <img src="${logo.foto}" 
            alt="${logo.nombre}" 
+           style="max-width: ${logo.escala}%; max-height: ${logo.escala}%;"
            loading="lazy" 
            onerror="this.onerror=null; this.src='assets/images/favicon.svg';">
     </div>
   `).join("");
 }
-
 // Ejecutar ambas cargas al iniciar
 document.addEventListener("DOMContentLoaded", () => {
   renderConferencistas();
