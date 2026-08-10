@@ -880,7 +880,7 @@ img, svg, picture, iframe {
 }
 
 .eje-card {
-  background: #e2f0ef63;
+  background: #e2f0efde;
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 2rem 1.75rem 1.5rem;
@@ -1405,15 +1405,11 @@ img, svg, picture, iframe {
 
 .logo-card {
   background: #ffffff;
-  border-radius: 12px;
-  border: 1px solid var(--border, #e5e7eb);
-  padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 180px;
+  
   height: 100px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
@@ -1440,8 +1436,6 @@ img, svg, picture, iframe {
     gap: 1rem;
   }
   .logo-card {
-    width: 140px;
     height: 80px;
-    padding: 0.75rem 1rem;
   }
 }
