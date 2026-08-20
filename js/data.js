@@ -5,33 +5,33 @@ function convertirLinkDriveAImagen(url) {
   const FALLBACK = "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format&fit=crop";
   if (!url) return FALLBACK;
 
-  // Extrae el ID de Drive ya sea enlace completo, enlace de compartir o ID directo
   const match = url.match(/(?:d\/|id=)([a-zA-Z0-9_-]{25,})/);
   if (!match) return url;
 
   const fileId = match[1];
-  // Servidor de miniaturas de Google Drive (sz=w800 solicita un ancho de 800px)
-  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w800`;
+  return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1200`;
 }
 
 // =====================================
-// EXTRACCIÓN DE CONFERENCISTAS (TSV)
+// ENDPOINTS Y APIS DE GOOGLE SHEETS (TSV)
 // =====================================
-const SHEET_TSV_CONFERENCISTAS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=0&single=true&output=tsv";
-const SHEET_TSV_LOGOS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=194022463&single=true&output=tsv";
+const SHEET_TSV_CONFERENCISTAS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnWg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=0&single=true&output=tsv";
+const SHEET_TSV_LOGOS_APOYO = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnWg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=194022463&single=true&output=tsv";
+const SHEET_TSV_LOGOS_ORGANIZAN = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnWg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=974092861&single=true&output=tsv";
+// Gid de prueba para el programa (puedes actualizar esta URL con la pestaña correspondiente)
+const SHEET_TSV_PROGRAMA = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnWg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=974092861&single=true&output=tsv";
 
+// =====================================
+// EXTRACCIÓN DE CONFERENCISTAS
+// =====================================
 async function fetchConferencistas() {
   try {
     const response = await fetch(SHEET_TSV_CONFERENCISTAS);
     const text = await response.text();
-    
-    // Dividir el TSV por saltos de línea
     const rows = text.split(/\r?\n/).filter(row => row.trim() !== "");
     
-    // Omitimos la primera fila (encabezado) y mapeamos separando por tabulaciones (\t)
     return rows.slice(1).map(row => {
       const values = row.split("\t").map(item => item.trim().replace(/^"|"$/g, ''));
-      
       return {
         nombre: values[0] || "Conferencista Invitado",
         detalle: values[1] || "Información no disponible.",
@@ -45,27 +45,24 @@ async function fetchConferencistas() {
 }
 
 // =====================================
-// EXTRACCIÓN DE LOGOS (TSV)
+// EXTRACCIÓN DE LOGOS REUTILIZABLE
 // =====================================
-async function fetchLogos() {
+async function fetchLogosFromUrl(sheetUrl) {
   try {
-    const response = await fetch(SHEET_TSV_LOGOS);
+    const response = await fetch(sheetUrl);
     const text = await response.text();
-    
     const rows = text.split(/\r?\n/).filter(row => row.trim() !== "");
     
     return rows.slice(1).map(row => {
       const values = row.split("\t").map(item => item.trim().replace(/^"|"$/g, ''));
       
-      // Limpiar el valor del porcentaje ingresado en el Excel
       let escala = values[2] ? values[2].replace('%', '').trim() : "100";
-      // Si el usuario deja la celda vacía o pone un valor no numérico, usa 100% por defecto
       if (isNaN(escala) || escala === "") escala = "100";
 
       return {
         nombre: values[0] || "Logo",
         foto: convertirLinkDriveAImagen(values[1]),
-        escala: escala // Ej: 80, 100, 120
+        escala: escala
       };
     });
   } catch (error) {
@@ -73,8 +70,6 @@ async function fetchLogos() {
     return [];
   }
 }
-
-
 
 // =====================================
 // RENDERIZADO EN EL DOM
@@ -93,32 +88,29 @@ async function renderConferencistas() {
   }
 
   container.innerHTML = conferencistas.map((speaker, index) => `
-  <article class="speaker-card">
-    <div class="speaker-img-wrap">
-      <img src="${speaker.foto}" 
-           alt="${speaker.nombre}" 
-           loading="lazy" 
-           onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format&fit=crop';">
-    </div>
-    <div class="speaker-body">
-      <h3 class="speaker-name">${speaker.nombre}</h3>
-      <p class="speaker-preview">${speaker.detalle}</p>
-      <button class="btn-speaker-more" onclick="abrirModalSpeaker(${index})">
-        Ver detalle <i class="fa-solid fa-arrow-right"></i>
-      </button>
-    </div>
-  </article>
-`).join("");
+    <article class="speaker-card">
+      <div class="speaker-img-wrap">
+        <img src="${speaker.foto}" 
+             alt="${speaker.nombre}" 
+             loading="lazy" 
+             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format&fit=crop';">
+      </div>
+      <div class="speaker-body">
+        <h3 class="speaker-name">${speaker.nombre}</h3>
+        <p class="speaker-preview">${speaker.detalle}</p>
+        <button class="btn-speaker-more" onclick="abrirModalSpeaker(${index})">
+          Ver detalle <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </article>
+  `).join("");
 
-  // Guardamos la lista en window para que el modal la consulte
   window.listaConferencistas = conferencistas;
 }
 
-// =====================================
-// RENDERIZADO DE LOGOS
-// =====================================
-async function renderLogos() {
-  const container = document.getElementById("logos-grid");
+// Renderizado de las dos secciones de logos
+async function renderLogosGenerico(containerId, sheetUrl) {
+  const container = document.getElementById(containerId);
   if (!container) return;
 
   container.innerHTML = `
@@ -126,7 +118,7 @@ async function renderLogos() {
       <i class="fa-solid fa-spinner fa-spin"></i> Cargando instituciones...
     </div>`;
 
-  const logos = await fetchLogos();
+  const logos = await fetchLogosFromUrl(sheetUrl);
 
   if (logos.length === 0) {
     container.innerHTML = `<p class="no-data" style="text-align: center; grid-column: 1/-1; color: var(--muted);">Próximamente más instituciones.</p>`;
@@ -139,15 +131,48 @@ async function renderLogos() {
            alt="${logo.nombre}" 
            style="max-width: ${logo.escala}%; max-height: ${logo.escala}%;"
            loading="lazy" 
-           onerror="this.onerror=null; this.src='assets/images/favicon.svg';">
+           onerror="this.onerror=null; this.src='assets/icons/favicon.svg';">
     </div>
   `).join("");
 }
-// Ejecutar ambas cargas al iniciar
-document.addEventListener("DOMContentLoaded", () => {
-  renderConferencistas();
-  renderLogos();
-});
+
+// =====================================
+// RENDERIZADO DEL PROGRAMA EN IMAGEN
+// =====================================
+async function renderPrograma() {
+  const container = document.getElementById("programa-container");
+  if (!container) return;
+
+  try {
+    const response = await fetch(SHEET_TSV_PROGRAMA);
+    const text = await response.text();
+    const rows = text.split(/\r?\n/).filter(row => row.trim() !== "");
+    
+    if (rows.length < 2) return;
+
+    // Lee la primera fila útil (omite encabezado): Nombre | URL Imagen
+    const values = rows[1].split("\t").map(item => item.trim().replace(/^"|"$/g, ''));
+    const tituloPrograma = values[0] || "Programa General del Evento";
+    const urlImagenPrograma = convertirLinkDriveAImagen(values[1]);
+
+    if (!values[1]) return;
+
+    container.innerHTML = `
+      <div class="programa-wrapper text-center">
+        <a href="${urlImagenPrograma}" target="_blank" rel="noopener noreferrer" title="Haga clic para abrir la imagen en alta resolución">
+          <img src="${urlImagenPrograma}" alt="${tituloPrograma}" class="programa-img-preview">
+        </a>
+        <div style="margin-top: 15px;">
+          <a href="${urlImagenPrograma}" target="_blank" rel="noopener noreferrer" class="secondary-btn-outline">
+            <i class="fa-solid fa-magnifying-glass-plus"></i> Ver programa en pantalla completa
+          </a>
+        </div>
+      </div>
+    `;
+  } catch (error) {
+    console.error("Error al cargar la imagen del programa:", error);
+  }
+}
 
 // =====================================
 // LÓGICA DE MODALES
@@ -169,7 +194,12 @@ function cerrarModalSpeaker() {
   if (modal) modal.classList.remove("active");
 }
 
-// Ejecutar al cargar el documento
+// =====================================
+// INICIALIZACIÓN ÚNICA DOM
+// =====================================
 document.addEventListener("DOMContentLoaded", () => {
   renderConferencistas();
+  renderLogosGenerico("logos-organizan-grid", SHEET_TSV_LOGOS_ORGANIZAN);
+  renderLogosGenerico("logos-grid", SHEET_TSV_LOGOS_APOYO);
+  renderPrograma();
 });
