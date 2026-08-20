@@ -113,6 +113,17 @@
       </div>
     </section>
 
+       <!-- SECCIÓN PROGRAMA EN IMAGEN (Si deseas incluirlo en el index) -->
+        <section id="programa" class="container" style="padding: 40px 0;">
+          <div class="section-title-wrap text-center">
+            <h2>Programa del Evento</h2>
+            <p>Consulte la agenda detallada de las actividades</p>
+          </div>
+          <div id="programa-container">
+            <!-- Inyectado dinámicamente desde la hoja de cálculo por JS -->
+          </div>
+        </section>
+
     <!-- EJES TEMÁTICOS / EJES DE TRABAJO -->
     <section class="container">
       <div class="pillar-grid efe-axes-grid">
@@ -308,18 +319,26 @@
 
     <!-- ORGANIZADORES -->
    <!-- ORGANIZADORES E INSTITUCIONES AFINES -->
-    <section class="sponsors-carousel-section" style="padding-top: 40px;">
-      <div id="logos" class="container text-center" style="padding: 0px;">
-        <h3>Con el apoyo institucional de:</h3>
-        
-       
-    
-        <!-- Contenedor dinámico para logos desde el Excel -->
-        <div id="logos-grid" class="logos-grid">
-          <!-- Inyectado dinámicamente por JS -->
-        </div>
-      </div>
-    </section>
+
+<!-- SECCIÓN ORGANIZAN -->
+<section class="sponsors-carousel-section" style="padding-top: 40px;">
+  <div class="container text-center" style="padding: 0px;">
+    <h3>Organizan</h3>
+    <div id="logos-organizan-grid" class="logos-grid">
+      <!-- Inyectado dinámicamente por JS desde Sheet Organizan -->
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN CON EL APOYO INSTITUCIONAL DE -->
+<section class="sponsors-carousel-section" style="padding-top: 20px;">
+  <div id="logos" class="container text-center" style="padding: 0px;">
+    <h3>Con el apoyo institucional de:</h3>
+    <div id="logos-grid" class="logos-grid">
+      <!-- Inyectado dinámicamente por JS desde Sheet Apoyo -->
+    </div>
+  </div>
+</section>
 
     <!-- CONTACTO Y SEDE -->
     <section id="registro" class="container contact-registration-section">
