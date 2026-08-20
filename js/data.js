@@ -18,11 +18,10 @@ function convertirLinkDriveAImagen(url) {
 const SHEET_TSV_CONFERENCISTAS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=0&single=true&output=tsv";
 const SHEET_TSV_LOGOS_APOYO = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=194022463&single=true&output=tsv";
 const SHEET_TSV_LOGOS_ORGANIZAN = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=974092861&single=true&output=tsv";
-// Gid de prueba para el programa (puedes actualizar esta URL con la pestaña correspondiente)
 const SHEET_TSV_PROGRAMA = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=1228931288&single=true&output=tsv";
 
 // =====================================
-// EXTRACCIÓN DE CONFERENCISTAS
+// EXTRACCIÓN DE CONFERENCISTAS Y PROGRAMA
 // =====================================
 async function fetchConferencistas() {
   try {
@@ -41,6 +40,25 @@ async function fetchConferencistas() {
   } catch (error) {
     console.error("Error cargando Conferencistas desde TSV:", error);
     return [];
+  }
+}
+
+async function fetchPrograma() {
+  if (!SHEET_TSV_PROGRAMA) return null;
+  try {
+    const response = await fetch(SHEET_TSV_PROGRAMA);
+    const text = await response.text();
+    const rows = text.split(/\r?\n/).filter(row => row.trim() !== "");
+    if (rows.length < 2) return null;
+
+    const values = rows[1].split("\t").map(item => item.trim().replace(/^"|"$/g, ''));
+    return {
+      titulo: values[0] || "Programa Oficial de Actividades",
+      imagen: convertirLinkDriveAImagen(values[1])
+    };
+  } catch (error) {
+    console.error("Error cargando el programa desde TSV:", error);
+    return null;
   }
 }
 
@@ -114,14 +132,14 @@ async function renderLogosGenerico(containerId, sheetUrl) {
   if (!container) return;
 
   container.innerHTML = `
-    <div class="logos-loading" style="text-align: center; grid-column: 1/-1; padding: 1.5rem; color: var(--muted);">
+    <div class="logos-loading" style="text-align: center; grid-column: 1/-1; padding: 1.5rem; color: var(--muted, #666);">
       <i class="fa-solid fa-spinner fa-spin"></i> Cargando instituciones...
     </div>`;
 
   const logos = await fetchLogosFromUrl(sheetUrl);
 
   if (logos.length === 0) {
-    container.innerHTML = `<p class="no-data" style="text-align: center; grid-column: 1/-1; color: var(--muted);">Próximamente más instituciones.</p>`;
+    container.innerHTML = `<p class="no-data" style="text-align: center; grid-column: 1/-1; color: var(--muted, #666);">Próximamente más instituciones.</p>`;
     return;
   }
 
@@ -136,9 +154,6 @@ async function renderLogosGenerico(containerId, sheetUrl) {
   `).join("");
 }
 
-// =======================================================
-// REEMPLAZAR EN JS/DATA.JS (RENDERIZADO DEL PROGRAMA)   
-// =======================================================
 async function renderPrograma() {
   const container = document.getElementById("programa-container");
   if (!container) return;
@@ -178,10 +193,12 @@ async function renderPrograma() {
 // LÓGICA DE MODALES
 // =====================================
 function abrirModalSpeaker(index) {
-  const speaker = window.listaConferencistas[index];
+  const speaker = window.listaConferencistas ? window.listaConferencistas[index] : null;
   if (!speaker) return;
 
   const modal = document.getElementById("speaker-modal");
+  if (!modal) return;
+
   document.getElementById("modal-speaker-img").src = speaker.foto;
   document.getElementById("modal-speaker-name").textContent = speaker.nombre;
   document.getElementById("modal-speaker-bio").textContent = speaker.detalle;
