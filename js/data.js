@@ -136,41 +136,41 @@ async function renderLogosGenerico(containerId, sheetUrl) {
   `).join("");
 }
 
-// =====================================
-// RENDERIZADO DEL PROGRAMA EN IMAGEN
-// =====================================
+// =======================================================
+// REEMPLAZAR EN JS/DATA.JS (RENDERIZADO DEL PROGRAMA)   
+// =======================================================
 async function renderPrograma() {
   const container = document.getElementById("programa-container");
   if (!container) return;
 
-  try {
-    const response = await fetch(SHEET_TSV_PROGRAMA);
-    const text = await response.text();
-    const rows = text.split(/\r?\n/).filter(row => row.trim() !== "");
-    
-    if (rows.length < 2) return;
+  container.innerHTML = `
+    <div class="programa-loading" style="text-align: center; padding: 2rem; color: var(--muted, #666);">
+      <i class="fa-solid fa-spinner fa-spin"></i> Cargando programa actualizado...
+    </div>`;
 
-    // Lee la primera fila útil (omite encabezado): Nombre | URL Imagen
-    const values = rows[1].split("\t").map(item => item.trim().replace(/^"|"$/g, ''));
-    const tituloPrograma = values[0] || "Programa General del Evento";
-    const urlImagenPrograma = convertirLinkDriveAImagen(values[1]);
+  const programa = await fetchPrograma();
 
-    if (!values[1]) return;
-
+  if (programa && programa.imagen) {
     container.innerHTML = `
-      <div class="programa-wrapper text-center">
-        <a href="${urlImagenPrograma}" target="_blank" rel="noopener noreferrer" title="Haga clic para abrir la imagen en alta resolución">
-          <img src="${urlImagenPrograma}" alt="${tituloPrograma}" class="programa-img-preview">
-        </a>
-        <div style="margin-top: 15px;">
-          <a href="${urlImagenPrograma}" target="_blank" rel="noopener noreferrer" class="secondary-btn-outline">
-            <i class="fa-solid fa-magnifying-glass-plus"></i> Ver programa en pantalla completa
-          </a>
+      <div class="programa-wrapper text-center" style="max-width: 1000px; margin: 0 auto;">
+        <h3 style="margin-bottom: 1.5rem; color: #00204a; font-weight: 700;">${programa.titulo}</h3>
+        <div class="programa-img-card" style="background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.08);">
+          <img src="${programa.imagen}" 
+               alt="${programa.titulo}" 
+               style="width: 100%; height: auto; border-radius: 8px; display: block;"
+               loading="lazy"
+               onerror="this.onerror=null; this.parentElement.innerHTML='<p style=\'padding:2rem; color:#666;\'>No se pudo cargar la imagen del programa.</p>';">
         </div>
       </div>
     `;
-  } catch (error) {
-    console.error("Error al cargar la imagen del programa:", error);
+  } else {
+    container.innerHTML = `
+      <div class="programa-placeholder text-center" style="padding: 3rem 1rem; background: #f8fafc; border-radius: 12px; border: 1px dashed #cbd5e1;">
+        <i class="fa-solid fa-calendar-check" style="font-size: 2.5rem; color: #166534; margin-bottom: 1rem;"></i>
+        <h3 style="color: #00204a; font-weight: 700; margin-bottom: 0.5rem;">Programa en Construcción</h3>
+        <p style="color: #64748b; max-width: 600px; margin: 0 auto;">Estamos finalizando los detalles de la agenda detallada con los ponentes y paneles confirmados. Muy pronto estará disponible aquí.</p>
+      </div>
+    `;
   }
 }
 
