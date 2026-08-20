@@ -1440,3 +1440,28 @@ img, svg, picture, iframe {
     height: 80px;
   }
 }
+
+/* =========================================================
+   ESTILOS PARA LA IMAGEN DEL PROGRAMA/CRONOGRAMA
+========================================================= */
+.programa-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid var(--border, #e5e7eb);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.programa-img-preview {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.programa-img-preview:hover {
+  transform: scale(1.01);
+}
