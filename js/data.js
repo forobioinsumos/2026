@@ -15,9 +15,9 @@ function convertirLinkDriveAImagen(url) {
 // =====================================
 // ENDPOINTS Y APIS DE GOOGLE SHEETS (TSV)
 // =====================================
-const SHEET_TSV_CONFERENCISTAS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnWg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=0&single=true&output=tsv";
-const SHEET_TSV_LOGOS_APOYO = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnWg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=194022463&single=true&output=tsv";
-const SHEET_TSV_LOGOS_ORGANIZAN = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnWg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=974092861&single=true&output=tsv";
+const SHEET_TSV_CONFERENCISTAS = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=0&single=true&output=tsv";
+const SHEET_TSV_LOGOS_APOYO = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=194022463&single=true&output=tsv";
+const SHEET_TSV_LOGOS_ORGANIZAN = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=974092861&single=true&output=tsv";
 // Gid de prueba para el programa (puedes actualizar esta URL con la pestaña correspondiente)
 const SHEET_TSV_PROGRAMA = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRfovABvdTQnDwg-8ZJs-dWFP7zIgUa8-YsKESe0_cz5hNuUPGNFTVuKYBDO-aqlwO-XoT2Bca8GVpy/pub?gid=1228931288&single=true&output=tsv";
 
